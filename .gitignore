@@ -2,3 +2,4 @@
 build/*
 Doxy/html
 out
+.gitattributes
