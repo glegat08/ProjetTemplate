@@ -595,21 +595,37 @@ struct myList
         return current->data;
     }
 
+    /**
+     * @brief Gets reverse iterator to last element
+     * @return Reverse iterator to the reverse beginning
+     */
     reverse_iterator rbegin()
     {
         return reverse_iterator(iterator(m_end));
     }
 
+    /**
+	 * @brief Gets reverse iterator to theoretical element before first
+	 * @return Reverse iterator to the reverse end
+	 */
     reverse_iterator rend()
     {
         return reverse_iterator(iterator(m_start));
     }
 
+    /**
+	* @brief Gets const reverse iterator to last element
+	* @return Const reverse iterator to the reverse beginning
+	*/
     reverse_const_iterator rbegin() const
     {
         return reverse_const_iterator(const_iterator(m_end));
     }
 
+    /**
+	* @brief Gets const reverse iterator to theoretical element before first
+	* @return Const reverse iterator to the reverse end
+	*/
     reverse_const_iterator rend() const
     {
         return reverse_const_iterator(const_iterator(m_start));

@@ -10,33 +10,71 @@
 #include <initializer_list>
 #include <sstream>
 
+ /**
+  * @namespace PLEASE
+  * @brief Namespace containing the intrusive list implementation
+  */
 namespace PLEASE
 {
+	/**
+	* @brief Node structure for the intrusive list
+	* @tparam The type of data stored in the node
+	*/
 	template <typename type>
 	struct Node
 	{
+		/**
+		 * @brief Default constructor, initializes pointers to nullptr
+		 */
 		Node() :Next(nullptr), Previous(nullptr)
-		{
-		}
-		Node(type val) :data(val), Next(nullptr), Previous(nullptr)
-		{
-		}
-		type data;
-		Node<type>* Next;
-		Node<type>* Previous;
+		{}
 
+		/**
+		 * @brief Parameterized constructor
+		 * @param val Value to store in the node
+		 */
+		Node(type val) :data(val), Next(nullptr), Previous(nullptr)
+		{}
+
+		type data;              ///< Data stored in the node
+		Node<type>* Next;       ///< Pointer to the next node in the list
+		Node<type>* Previous;   ///< Pointer to the previous node in the list
+
+		/**
+		 * @brief Equality comparison operator
+		 * @param other Node to compare with
+		 * @return true if the data in both nodes is equal
+		 */
 		bool operator==(const Node& other) const
 		{
 			return data == other.data;
 		}
+
+		/**
+		 * @brief Inequality comparison operator
+		 * @param other Node to compare with
+		 * @return true if the data in both nodes is not equal
+		 */
 		bool operator!=(const Node& other) const
 		{
 			return data != other.data;
 		}
+
+		/**
+		 * @brief Less than comparison operator
+		 * @param other Node to compare with
+		 * @return true if this node's data is less than other's data
+		 */
 		bool operator<(const Node& other) const
 		{
 			return data < other.data;
 		}
+
+		/**
+		* @brief Greater than comparison operator
+		* @param other Node to compare with
+		* @return false if other is nullptr, otherwise compares data
+		*/
 		bool operator>(const Node& other) const
 		{
 			if (&other == nullptr) 
@@ -44,31 +82,60 @@ namespace PLEASE
 
 			return data > other.data;
 		}
+
+		/**
+		 * @brief Less than or equal comparison operator
+		 * @param other Node to compare with
+		 * @return true if this node's data is less than or equal to other's data
+		 */
 		bool operator<=(const Node& other) const
 		{
 			return data <= other.data;
 		}
+
+		/**
+		 * @brief Greater than or equal comparison operator
+		 * @param other Node to compare with
+		 * @return true if this node's data is greater than or equal to other's data
+		 */
 		bool operator>=(const Node& other) const
 		{
 			return data >= other.data;
 		}
+
+		/**
+	   * @brief Assignment operator
+	   * @param other Node to assign from
+	   * @return The assigned value
+	   */
 		bool operator=(const Node& other)
 		{
 			return data = other.data;
 		}
 	};
 
+	/**
+	 * @brief Output stream operator for Node
+	 * @param os Output stream
+	 * @param node Node to output
+	 * @return Reference to the output stream
+	 */
 	template <typename type>
 	std::ostream& operator<<(std::ostream& os, const Node<type>& node)
 	{
 		return os << node.data;
 	}
 
+	/**
+	 * @brief Intrusive doubly-linked list implementation
+	 * @tparam type The type of data stored in the list
+	 */
 	template<typename type>
 	struct myIntrusiveList
 	{
 	public:
 
+		// Forward declarations and type aliases
 		struct Node;
 		struct iterator;
 		struct const_iterator;
@@ -84,8 +151,21 @@ namespace PLEASE
 		using reference = PLEASE::Node<type>&;
 		using const_reference = const PLEASE::Node<type>&;
 
+		/**
+		 * @brief Destructor, cleans up all nodes
+		 */
 		~myIntrusiveList() { clear(); }
+
+		/**
+		 * @brief Default constructor
+		 * @details Initializes an empty list with head and tail sentinels
+		 */
 		myIntrusiveList(): m_size(0) { Head.Next = &Tail;  Tail.Previous = &Head; }
+
+		/**
+		* @brief Copy constructor
+		* @param tab List to copy from
+		*/
 		myIntrusiveList(const myIntrusiveList& tab): m_size(0)
 		{
 			Head.Next = &Tail;
@@ -95,6 +175,11 @@ namespace PLEASE
 				push_back(*it);
 			}
 		}
+
+		/**
+		 * @brief Initializer list constructor
+		 * @param list Initializer list to construct from
+		 */
 		myIntrusiveList(const std::initializer_list<PLEASE::Node<type>>& list): m_size(0)
 		{
 			Head.Next = &Tail;  Tail.Previous = &Head;
@@ -103,6 +188,13 @@ namespace PLEASE
 				push_back(element);
 			}
 		}
+
+		/**
+		* @brief Resizes the list
+		* @param idx New size
+		* @details If idx is smaller than current size, removes elements from the end
+		*          If idx is larger than current size, adds default-constructed elements
+		*/
 		void resize(const size_t& idx)
 		{
 			if (idx < m_size)
@@ -122,12 +214,22 @@ namespace PLEASE
 			}
 
 		}
+
+		/**
+		 * @brief Swaps the contents of two lists
+		 * @param Newlist List to swap with
+		 */
 		void swap(myIntrusiveList<type>& Newlist)
 		{
 			myIntrusiveList<type> tmp = *this;
 			*this = Newlist;
 			Newlist = tmp;
 		}
+
+		/**
+		 * @brief Adds an element to the end of the list
+		 * @param val Value to add
+		 */
 		void push_back(const value_type& val)
 		{
 			pointer NewVal = new PLEASE::Node(val.data);
@@ -137,6 +239,11 @@ namespace PLEASE
 			Tail.Previous = NewVal;
 			++m_size;
 		}
+
+		/**
+		 * @brief Removes the last element
+		 * @throw std::out_of_range if the list is empty
+		 */
 		void pop_back()
 		{
 			if (Empty())
@@ -151,6 +258,11 @@ namespace PLEASE
 
 			--m_size;
 		}
+
+		/**
+		 * @brief Adds an element to the front of the list
+		 * @param val Value to add
+		 */
 		void pushFront(const value_type& val)
 		{
 			pointer NewVal = new PLEASE::Node(val.data);
@@ -160,6 +272,11 @@ namespace PLEASE
 			Head.Next = NewVal;
 			++m_size;
 		}
+
+		/**
+		 * @brief Removes the first element
+		 * @throw std::out_of_range if the list is empty
+		 */
 		void popFront()
 		{
 			if (Empty())
@@ -174,6 +291,12 @@ namespace PLEASE
 
 			--m_size;
 		}
+
+		/**
+		* @brief Access operator
+		* @param idx Index of element to access
+		* @return Reference to the element at position idx
+		*/
 		reference operator[](const size_t& idx)
 		{
 			auto it = begin();
@@ -184,6 +307,12 @@ namespace PLEASE
 			return *it;
 
 		}
+
+		/**
+		* @brief Const access operator
+		* @param idx Index of element to access
+		* @return Const reference to the element at position idx
+		*/
 		const_reference operator[](const size_t& idx) const
 		{
 			auto it = begin();
@@ -193,6 +322,13 @@ namespace PLEASE
 			}
 			return *it;
 		}
+
+		/**
+		* @brief Safe element access with bounds checking
+		* @param idx Index of element to access
+		* @return Reference to the element at position idx
+		* @throw std::out_of_range if idx is out of bounds or list is empty
+		*/
 		reference at(const size_t& idx)
 		{
 			if (Empty())
@@ -206,6 +342,13 @@ namespace PLEASE
 			}
 			return *it;
 		}
+
+		/**
+		* @brief Safe const element access with bounds checking
+		* @param idx Index of element to access
+		* @return Const reference to the element at position idx
+		* @throw std::out_of_range if idx is out of bounds or list is empty
+		*/
 		const_reference at(const size_t& idx) const
 		{
 			if (Empty())
@@ -219,22 +362,48 @@ namespace PLEASE
 			}
 			return *it;
 		}
+
+		/**
+		 * @brief Checks if the list is empty
+		 * @return true if the list is empty
+		 */
 		bool Empty()
 		{
 			return m_size == 0;
 		}
+
+		/**
+		* @brief Const version of empty check
+		* @return true if the list is empty
+		*/
 		bool Empty() const
 		{
 			return m_size == 0;
 		}
+
+		/**
+		 * @brief Gets the current size of the list
+		 * @return Number of elements in the list
+		 */
 		size_t size()
 		{
 			return m_size;
 		}
+
+		/**
+		 * @brief Const version of size getter
+		 * @return Number of elements in the list
+		 */
 		size_t size() const
 		{
 			return m_size;
 		}
+
+		/**
+		 * @brief Removes element at iterator position
+		 * @param it Iterator to element to remove
+		 * @throw std::out_of_range if iterator is invalid
+		 */
 		void erase(const iterator& it)
 		{
 			if (find(it) == end())
@@ -247,60 +416,118 @@ namespace PLEASE
 
 			--m_size;
 		}
+
+		/**
+		 * @brief Gets iterator to first element
+		 * @return Iterator to beginning
+		 * @throw std::out_of_range if list is empty
+		 */
 		iterator begin()
 		{
 			if (Empty())
 				throw std::out_of_range("Array is empty");
 			return iterator(Head.Next);
 		}
+
+		/**
+		 * @brief Gets const iterator to first element
+		 * @return Const iterator to beginning
+		 * @throw std::out_of_range if list is empty
+		 */
 		const_iterator begin() const
 		{
 			if (Empty())
 				throw std::out_of_range("Array is empty");
 			return const_iterator(Head.Next);
 		}
+
+		/**
+		 * @brief Gets iterator to end
+		 * @return Iterator to end
+		 * @throw std::out_of_range if list is empty
+		 */
 		iterator end()
 		{
 			if (Empty())
 				throw std::out_of_range("Array is empty");
 			return iterator(&Tail);
 		}
+
+		/**
+		* @brief Gets const iterator to end
+		* @return Const iterator to end
+		* @throw std::out_of_range if list is empty
+		*/
 		const_iterator end() const
 		{
 			if (Empty())
 				throw std::out_of_range("Array is empty");
 			return const_iterator(&Tail);
 		}
+
+		/**
+		* @brief Access first element
+		* @return Reference to first element
+		* @throw std::out_of_range if list is empty
+		*/
 		reference front()
 		{
 			if (Empty())
 				throw std::out_of_range("Array is empty");
 			return *Head.Next;
 		}
+
+		/**
+		 * @brief Const access to first element
+		 * @return Const reference to first element
+		 * @throw std::out_of_range if list is empty
+		 */
 		const_reference front() const
 		{
 			if (Empty())
 				throw std::out_of_range("Array is empty");
 			return *Head.Next;
 		}
+
+		/**
+		 * @brief Access last element
+		 * @return Reference to last element
+		 * @throw std::out_of_range if list is empty
+		 */
 		reference back()
 		{
 			if (Empty())
 				throw std::out_of_range("Array is empty");
 			return *Tail.Previous;
 		}
+
+		/**
+		 * @brief Const access to last element
+		 * @return Const reference to last element
+		 * @throw std::out_of_range if list is empty
+		 */
 		const_reference back() const
 		{
 			if (Empty())
 				throw std::out_of_range("Array is empty");
 			return *Tail.Previous;
 		}
+
+		/**
+		 * @brief Removes all elements from the list
+		 */
 		void clear()
 		{
 			while (!Empty())
 				popFront();
 			resize(0);
 		}
+
+		/**
+		 * @brief Assignment operator
+		 * @param tab List to copy from
+		 * @return Reference to this list
+		 */
 		myIntrusiveList& operator=(const myIntrusiveList& tab)
 		{
 			clear();
@@ -310,6 +537,12 @@ namespace PLEASE
 			}
 			return *this;
 		}
+
+		/**
+		 * @brief Assigns new contents to the list using iterator range
+		 * @param begin Iterator to start of range
+		 * @param end Iterator to end of range
+		 */
 		void assign(const iterator& begin, const iterator& end)
 		{
 			clear();
@@ -318,6 +551,12 @@ namespace PLEASE
 				push_back(*it);
 			}
 		}
+
+		/**
+		 * @brief Assigns new contents to the list with a given value repeated n times
+		 * @param sizeofvec Number of elements to assign
+		 * @param data Value to fill the list with
+		 */
 		void assign(const size_t& sizeofvec, const value_type& data)
 		{
 			clear();
@@ -326,6 +565,11 @@ namespace PLEASE
 				push_back(data);
 			}
 		}
+
+		/**
+		 * @brief Assigns new contents from an initializer list
+		 * @param list Initializer list to assign from
+		 */
 		void assign(const std::initializer_list<PLEASE::Node<type>>& list)
 		{
 			clear();
@@ -334,38 +578,79 @@ namespace PLEASE
 				push_back(element);
 			}
 		}
+
+		/**
+		 * @brief Gets reverse iterator to last element
+		 * @return Reverse iterator to the reverse beginning
+		 * @throw std::out_of_range if list is empty
+		 */
 		reverse_iterator rbegin()
 		{
 			if (Empty())
 				throw std::out_of_range("Array is empty");
 			return reverse_iterator(Tail.Previous);
 		}
+
+		/**
+		 * @brief Gets const reverse iterator to last element
+		 * @return Const reverse iterator to the reverse beginning
+		 * @throw std::out_of_range if list is empty
+		 */
 		const_reverse_iterator rbegin() const
 		{
 			if (Empty())
 				throw std::out_of_range("Array is empty");
 			return const_reverse_iterator(Tail.Previous);
 		}
+
+		/**
+		 * @brief Gets reverse iterator to theoretical element before first
+		 * @return Reverse iterator to the reverse end
+		 * @throw std::out_of_range if list is empty
+		 */
 		reverse_iterator rend()
 		{
 			if (Empty())
 				throw std::out_of_range("Array is empty");
 			return reverse_iterator(&Head);
 		}
+
+		/**
+		 * @brief Gets const reverse iterator to theoretical element before first
+		 * @return Const reverse iterator to the reverse end
+		 * @throw std::out_of_range if list is empty
+		 */
 		const_reverse_iterator rend() const
 		{
 			if (Empty())
 				throw std::out_of_range("Array is empty");
 			return const_reverse_iterator(&Head);
 		}
+
+		/**
+		 * @brief Gets the maximum possible size of the list
+		 * @return Maximum number of elements that can be held
+		 */
 		size_t max_size()
 		{
 			return std::numeric_limits<size_t>::max() / sizeof(type);
 		}
+
+		/**
+		* @brief Const version of max_size
+		* @return Maximum number of elements that can be held
+		*/
 		size_t max_size() const
 		{
 			return std::numeric_limits<size_t>::max() / sizeof(type);
 		}
+
+		/**
+		 * @brief Inserts an element at iterator position
+		 * @param newit Iterator indicating the position to insert
+		 * @param value Value to insert
+		 * @throw std::out_of_range if iterator is invalid
+		 */
 		void insert(const iterator& newit, const value_type& value)
 		{
 			if (find(newit) == end())
@@ -378,6 +663,12 @@ namespace PLEASE
 			oldnode->Previous = nodetoadd;
 			++m_size;
 		}
+
+		/**
+		 * @brief Finds an element in the list
+		 * @param ptr Iterator to search for
+		 * @return Iterator to found element or end() if not found
+		 */
 		iterator find(const iterator& ptr)
 		{
 			for (auto it = begin(); it != end(); ++it)
@@ -387,6 +678,12 @@ namespace PLEASE
 			}
 			return end();
 		}
+
+		/**
+		 * @brief Const version of find
+		 * @param ptr Iterator to search for
+		 * @return Const iterator to found element or end() if not found
+		 */
 		const_iterator find(const iterator& ptr) const
 		{
 			for (auto it = begin(); it != end(); ++it)
@@ -398,6 +695,10 @@ namespace PLEASE
 		}
 	private:
 
+		/**
+		* @brief Iterator class for myIntrusiveList
+		* @details Provides STL-compatible random access iterator functionality
+		*/
 		struct iterator
 		{
 			//this iterator compatible with stl
@@ -407,23 +708,53 @@ namespace PLEASE
 			using pointer = PLEASE::Node<type>*;
 			using reference = PLEASE::Node<type>&;
 			friend myIntrusiveList;
+
+			/**
+			 * @brief Constructor
+			 * @param ptr Pointer to node
+			 */
 			iterator(pointer ptr) : m_node(ptr) {}
+
+			/**
+			 * @brief Dereference operator
+			 * @return Reference to the node
+			 */
 			reference operator*()
 			{
 				return *m_node;
 			}
+
+			/**
+			 * @brief Const dereference operator
+			 * @return Const reference to the node
+			 */
 			const reference  operator*() const
 			{
 				return *m_node;
 			}
+
+			/**
+			 * @brief Arrow operator
+			 * @return Pointer to the node
+			 */
 			pointer operator->()
 			{
 				return m_node;
 			}
+
+			/**
+			 * @brief Const arrow operator
+			 * @return Const pointer to the node
+			 */
 			const pointer operator->() const
 			{
 				return m_node;
 			}
+
+			/**
+			 * @brief Pre-increment operator
+			 * @return Reference to incremented iterator
+			 */
 			iterator& operator++()
 			{
 				if (m_node != nullptr) 
@@ -432,11 +763,22 @@ namespace PLEASE
 				}
 				return *this;
 			}
+
+			/**
+			 * @brief Pre-decrement operator
+			 * @return Reference to decremented iterator
+			 */
 			iterator& operator--()
 			{
 				m_node = m_node->Previous;
 				return *this;
 			}
+
+			/**
+			* @brief Addition operator
+			* @param n Number of positions to advance
+			* @return New iterator n positions forward
+			*/
 			iterator operator+(difference_type n) const
 			{
 				auto curentnode = m_node;
@@ -446,6 +788,12 @@ namespace PLEASE
 				}
 				return iterator(curentnode);
 			}
+
+			/**
+			 * @brief Subtraction operator
+			 * @param n Number of positions to move backward
+			 * @return New iterator n positions backward
+			 */
 			iterator operator-(difference_type n) const
 			{
 				auto curentnode = m_node;
@@ -455,6 +803,12 @@ namespace PLEASE
 				}
 				return iterator(curentnode);
 			}
+
+			/**
+			 * @brief Compound addition operator
+			 * @param n Number of positions to advance
+			 * @return Iterator advanced by n positions
+			 */
 			iterator operator+=(difference_type n)
 			{
 				auto currentnode = m_node;
@@ -464,6 +818,12 @@ namespace PLEASE
 				}
 				return iterator(currentnode);
 			}
+
+			/**
+			 * @brief Iterator subtraction operator
+			 * @param other Iterator to subtract from this one
+			 * @return Distance between iterators
+			 */
 			difference_type operator-(const iterator& other) const
 			{
 				difference_type diff = 0;
@@ -473,6 +833,12 @@ namespace PLEASE
 				}
 				return diff;
 			}
+
+			/**
+			 * @brief Iterator addition operator
+			 * @param other Iterator to add to this one
+			 * @return Sum of distances
+			 */
 			difference_type operator+(const iterator& other) const
 			{
 				difference_type diff = 0;
@@ -482,14 +848,32 @@ namespace PLEASE
 				}
 				return diff;
 			}
+
+			/**
+			* @brief Equality comparison operator
+			* @param other Iterator to compare with
+			* @return true if iterators point to same node
+			*/
 			bool operator==(const iterator& other) const
 			{
 				return m_node == other.m_node;
 			}
+
+			/**
+			 * @brief Inequality comparison operator
+			 * @param other Iterator to compare with
+			 * @return true if iterators point to different nodes
+			 */
 			bool operator!=(const iterator& other) const
 			{
 				return m_node != other.m_node;
 			}
+
+			/**
+			 * @brief Less than comparison operator
+			 * @param other Iterator to compare with
+			 * @return true if this iterator comes before other in sequence
+			 */
 			bool operator<(const iterator& other) const
 			{
 				auto curent = m_node;
@@ -502,6 +886,12 @@ namespace PLEASE
 				}
 				return false;
 			}
+
+			/**
+			 * @brief Greater than comparison operator
+			 * @param other Iterator to compare with
+			 * @return true if this iterator comes after other in sequence
+			 */
 			bool operator>(const iterator& other) const
 			{
 				auto curent = m_node;
@@ -514,6 +904,12 @@ namespace PLEASE
 				}
 				return false;
 			}
+
+			/**
+			 * @brief Less than or equal comparison operator
+			 * @param other Iterator to compare with
+			 * @return true if this iterator comes before or points to same node as other
+			 */
 			bool operator<=(const iterator& other) const
 			{
 				auto curent = m_node;
@@ -525,6 +921,12 @@ namespace PLEASE
 				}
 				return false;
 			}
+
+			/**
+			* @brief Greater than or equal comparison operator
+			* @param other Iterator to compare with
+			* @return true if this iterator comes after or points to same node as other
+			*/
 			bool operator>=(const iterator& other) const
 			{
 				auto curent = m_node;
@@ -537,8 +939,10 @@ namespace PLEASE
 				return false;
 			}
 		private:
-			pointer m_node;
+			pointer m_node;  ///< Pointer to current node
 		};
+
+		/// SAME THING AS ITERATOR CLASS
 		struct const_iterator
 		{
 			//this iterator compatible with stl
@@ -676,6 +1080,8 @@ namespace PLEASE
 		private:
 			pointer m_node;
 		};
+
+		/// SAME THING AS ITERATOR CLASS
 		struct reverse_iterator
 		{
 			using iterator_category = std::random_access_iterator_tag;
@@ -804,6 +1210,8 @@ namespace PLEASE
 		private:
 			pointer m_node;
 		};
+
+		/// SAME THING AS ITERATOR CLASS
 		struct const_reverse_iterator
 		{
 			using iterator_category = std::random_access_iterator_tag;
@@ -933,11 +1341,17 @@ namespace PLEASE
 		private:
 			pointer m_node;
 		};
-		PLEASE::Node<type> Head;
-		PLEASE::Node<type> Tail;
-		size_t m_size;
+		PLEASE::Node<type> Head;    ///< Head sentinel node
+		PLEASE::Node<type> Tail;    ///< Tail sentinel node
+		size_t m_size;              ///< Current size of the list
 	};
 
+	/**
+	 * @brief Output stream operator for myIntrusiveList
+	 * @param os Output stream
+	 * @param tab List to output
+	 * @return Reference to output stream
+	 */
 	template< typename type>
 	std::ostream& operator<<(std::ostream& os, const myIntrusiveList<type>& tab)
 	{

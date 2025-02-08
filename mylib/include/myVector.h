@@ -10,9 +10,18 @@
 #include <stdexcept>
 #include "helper.h"
 
+ /**
+  * @brief Custom vector implementation with fixed capacity
+  * @tparam T Type of elements stored in the vector
+  * @tparam N Maximum capacity of the vector
+  */
 template<typename T, size_t N>
 struct myVector
 {
+	/**
+	* @brief Iterator class for myVector
+	* Provides random access iterator functionality
+	*/
 	class iterator
 	{
 	public:
@@ -22,64 +31,117 @@ struct myVector
 		using pointer = T*;
 		using reference = T&;
 
+		/**
+	   * @brief Constructs iterator pointing to specific element
+	   * @param ptr Pointer to the element
+	   */
 		iterator(pointer ptr) : m_ptr(ptr) {}
 
+		/**
+		* @brief Dereference operator
+		* @return Reference to the pointed element
+		*/
 		reference operator*()
 		{
 			return *m_ptr;
 		}
+		/**
+		 * @brief Arrow operator for member access
+		 * @return Pointer to the element
+		 */
 		pointer operator->()
 		{
 			return m_ptr;
 		}
 
-		// Random access operations
+		/**
+		* @brief Compound addition assignment operator
+		* @param n Number of positions to advance
+		* @return Reference to this iterator
+		*/
 		iterator& operator+=(difference_type n)
 		{
 			m_ptr += n;
 			return *this;
 		}
 
+		/**
+		* @brief Addition operator
+		* @param n Number of positions to advance
+		* @return New iterator at the advanced position
+		*/
 		iterator operator+(difference_type n) const
 		{
 			iterator tmp = *this;
 			return tmp += n;
 		}
 
+		/**
+		* @brief Compound subtraction assignment operator
+		* @param n Number of positions to move backward
+		* @return Reference to this iterator
+		*/
 		iterator& operator-=(difference_type n)
 		{
 			m_ptr -= n;
 			return *this;
 		}
 
+		/**
+		* @brief Subtraction operator
+		* @param n Number of positions to move backward
+		* @return New iterator at the moved position
+		*/
 		iterator operator-(difference_type n) const
 		{
 			iterator tmp = *this;
 			return tmp -= n;
 		}
 
+		/**
+		* @brief Distance operator between iterators
+		* @param other Iterator to calculate distance to
+		* @return Distance between iterators
+		*/
 		difference_type operator-(const iterator& other) const
 		{
 			return m_ptr - other.m_ptr;
 		}
 
+		/**
+		* @brief Array subscript operator
+		* @param n Index offset
+		* @return Reference to element at offset position
+		*/
 		reference operator[](difference_type n) const
 		{
 			return *(*this + n);
 		}
 
+		/**
+		 * @brief Pre-increment operator
+		 * @return Reference to this iterator
+		 */
 		iterator& operator++()
 		{
 			++m_ptr;
 			return *this;
 		}
 
+		/**
+		 * @brief Pre-decrement operator
+		 * @return Reference to this iterator
+		 */
 		iterator& operator--()
 		{
 			--m_ptr;
 			return *this;
 		}
 
+		/**
+		 * @brief Post-increment operator
+		 * @return Iterator to previous position
+		 */
 		iterator operator++(int)
 		{
 			iterator tmp = *this;
@@ -87,6 +149,10 @@ struct myVector
 			return tmp;
 		}
 
+		/**
+		 * @brief Post-decrement operator
+		 * @return Iterator to previous position
+		 */
 		iterator operator--(int)
 		{
 			iterator tmp = *this;
@@ -128,6 +194,10 @@ struct myVector
 		pointer m_ptr;
 	};
 
+	/**
+	 * @brief Const iterator class for myVector
+	 * Provides read-only random access iterator functionality
+	 */
 	class const_iterator
 	{
 	public:
@@ -137,19 +207,31 @@ struct myVector
 		using pointer = const T*;
 		using reference = const T&;
 
+		/**
+		 * @brief Constructs const_iterator pointing to specific element
+		 * @param ptr Pointer to the element
+		 */
 		const_iterator(pointer ptr) : m_ptr(ptr) {}
 
+		/**
+		 * @brief Dereference operator
+		 * @return Const reference to the pointed element
+		 */
 		reference operator*() const
 		{
 			return *m_ptr;
 		}
 
+		/**
+		* @brief Arrow operator for member access
+		* @return Const pointer to the element
+		*/
 		pointer operator->() const
 		{
 			return m_ptr;
 		}
 
-		// Random access operations
+		// SAME THING AS ITERATOR CLASS
 		const_iterator& operator+=(difference_type n)
 		{
 			m_ptr += n;
@@ -259,17 +341,19 @@ struct myVector
 	using reverse_iterator = std::reverse_iterator<iterator>;
 	using reverse_const_iterator = std::reverse_iterator<const_iterator>;
 
-	/// <summary>
-	/// Constructor
-	/// </summary>
+	/**
+	 * @brief Default constructor
+	 * Initializes an empty vector with capacity N
+	 */
 	myVector()
 	: m_data(new T[N])
 	, m_size(0)
 	, m_capacity(N) {}
 
-	/// <summary>
-	/// Copy constructor
-	/// </summary>
+	/**
+	* @brief Copy constructor
+	* @param newVector Vector to copy from
+	*/
 	myVector(const myVector& newVector)
 	: m_data(new value_type[newVector.m_capacity])
 	, m_size(newVector.m_size)
@@ -278,9 +362,11 @@ struct myVector
 		glg::copy(newVector.m_data, newVector.m_data + newVector.m_size, m_data);
 	}
 
-	/// <summary>
-	/// Constructor with initializer_list
-	/// </summary>
+	/**
+	 * @brief Initializer list constructor
+	 * @param init Initializer list of elements
+	 * @throw std::out_of_range if init size exceeds capacity
+	 */
 	myVector(std::initializer_list<T> init)
 		: m_data(new T[N])
 		, m_size(init.size())
@@ -292,9 +378,11 @@ struct myVector
 		glg::copy(init.begin(), init.end(), m_data);
 	}
 
-	/// <summary>
-	/// Assignment operator
-	/// </summary>
+	/**
+	* @brief Assignment operator
+	* @param newVector Vector to assign from
+	* @return Reference to this vector
+	*/
 	myVector& operator=(const myVector& newVector)
 	{
 		if (this != &newVector)
@@ -308,18 +396,20 @@ struct myVector
 		return *this;
 	}
 
-	/// <summary>
-	/// Destructor
-	/// </summary>
+	/**
+	 * @brief Destructor
+	 * Deallocates the internal array
+	 */
 	~myVector()
 	{
 		delete[] m_data;
 		m_data = nullptr;
 	}
 
-	/// <summary>
-	/// Capacity methods
-	/// </summary>
+	/**
+	 * @brief Checks if the vector is empty
+	 * @return true if the vector is empty, false otherwise
+	 */
 	bool is_empty() const
 	{
 		if (m_size > 0)
@@ -328,25 +418,28 @@ struct myVector
 		return true;
 	}
 
-	/// <summary>
-	/// Capacity methods
-	/// </summary>
+	/**
+	* @brief Returns the current size of the vector
+	* @return Number of elements in the vector
+	*/
 	size_type size() const
 	{
 		return m_size;
 	}
 
-	/// <summary>
-	/// Capacity methods
-	/// </summary>
+	/**
+	* @brief Returns the current capacity of the vector
+	* @return Maximum number of elements that can be stored
+	*/
 	size_type capacity() const
 	{
 		return m_capacity;
 	}
 
-	/// <summary>
-	/// Capacity methods
-	/// </summary>
+	/**
+	 * @brief Reserves memory for specified number of elements
+	 * @param new_capacity New capacity to reserve
+	 */
 	void reserve(size_t new_capacity)
 	{
 		if (new_capacity > m_capacity)
@@ -360,9 +453,10 @@ struct myVector
 		}
 	}
 
-	/// <summary>
-	/// Capacity methods
-	/// </summary>
+	/**
+	* @brief Resizes the vector to contain specified number of elements
+	* @param new_size New size of the vector
+	*/
 	void resize(size_t new_size)
 	{
 		if (new_size > m_capacity)
@@ -379,39 +473,47 @@ struct myVector
 		m_size = new_size;
 	}
 
-	/// <summary>
-	/// Iterators methods
-	/// </summary>
+	/**
+	 * @brief Returns iterator to beginning
+	 * @return Iterator pointing to first element
+	 */
 	iterator begin()
 	{
 		return iterator(m_data);
 	}
-	/// <summary>
-	/// Iterators methods
-	/// </summary>
+
+	/**
+	 * @brief Returns const iterator to beginning
+	 * @return Const iterator pointing to first element
+	 */
 	const_iterator begin() const
 	{
 		return const_iterator(m_data);
 	}
 
-	/// <summary>
-	/// Iterators methods
-	/// </summary>
+	/**
+	 * @brief Returns iterator to end
+	 * @return Iterator pointing to past-the-end element
+	 */
 	iterator end()
 	{
 		return iterator(m_data + m_size);
 	}
-	/// <summary>
-	/// Iterators methods
-	/// </summary>
+
+	/**
+	 * @brief Returns const iterator to end
+	 * @return Const iterator pointing to past-the-end element
+	 */
 	const_iterator end() const
 	{
 		return const_iterator(m_data + m_size);
 	}
 
-	/// <summary>
-	/// Element access methods
-	/// </summary>
+	/**
+	 * @brief Access first element
+	 * @return Reference to first element
+	 * @throw std::runtime_error if vector is empty
+	 */
 	T& front() const
 	{
 		if (is_empty())
@@ -420,9 +522,11 @@ struct myVector
 		return m_data[0];
 	}
 
-	/// <summary>
-	/// Element access methods
-	/// </summary>
+	/**
+	 * @brief Access last element
+	 * @return Reference to last element
+	 * @throw std::runtime_error if vector is empty
+	 */
 	T& back() const
 	{
 		if (is_empty())
@@ -431,22 +535,30 @@ struct myVector
 		return m_data[m_size - 1];
 	}
 
-	/// <summary>
-	/// Element access methods
-	/// </summary>
+	/**
+	 * @brief Subscript operator
+	 * @param data_idx Index of element to access
+	 * @return Reference to element at specified position
+	 */
 	T& operator[](const size_t& data_idx)
 	{
 		return m_data[data_idx];
 	}
 
+	/**
+	* @brief Const subscript operator
+	* @param data_idx Index of element to access
+	* @return Const reference to element at specified position
+	*/
 	const T& operator[](const size_t& data_idx) const
 	{
 		return m_data[data_idx];
 	}
 
-	/// <summary>
-	/// Modifiers
-	/// </summary>
+	/**
+	 * @brief Adds element to end
+	 * @param value Element to add
+	 */
 	void push_back(const T& value)
 	{
 		if (m_size >= m_capacity)
@@ -456,9 +568,10 @@ struct myVector
 		++m_size;
 	}
 
-	/// <summary>
-	/// Modifiers
-	/// </summary>
+	/**
+	 * @brief Removes last element
+	 * @throw std::runtime_error if vector is empty
+	 */
 	void pop_back()
 	{
 		if (is_empty())
@@ -467,9 +580,13 @@ struct myVector
 		--m_size;
 	}
 
-	/// <summary>
-	/// Modifiers
-	/// </summary>
+	/**
+	 * @brief Inserts element at specified position
+	 * @param index Iterator to insertion position
+	 * @param value Element to insert
+	 * @return Iterator pointing to inserted element
+	 * @throw std::out_of_range if index is out of range
+	 */
 	iterator insert(iterator index, const T& value)
 	{
 		if (index > end())
@@ -484,9 +601,11 @@ struct myVector
 		return index;
 	}
 
-	/// <summary>
-	/// Modifiers
-	/// </summary>
+	/**
+	* @brief Erases element at specified position
+	* @param index Iterator to element to erase
+	* @return Iterator pointing to new element at same position
+	*/
 	iterator erase(iterator index)
 	{
 		if (index >= begin() && index < end()) 
@@ -500,19 +619,28 @@ struct myVector
 		return index;
 	}
 
-	/// <summary>
-	/// Modifiers
-	/// </summary>
+	/**
+	 * @brief Clears the contents
+	 */
 	void clear()
 	{
 		m_size = 0;
 	}
 
+	/**
+	* @brief Returns the maximum size possible
+	* @return Maximum number of elements that can be stored
+	*/
 	size_type max_size() const
 	{
 		return m_size;
 	}
 
+	/**
+	 * @brief Assigns new contents to the vector
+	 * @param count Number of elements to assign
+	 * @param value Value to assign to each element
+	 */
 	void assign(size_t count, const T& value)
 	{
 		if (count > m_capacity)
@@ -525,6 +653,10 @@ struct myVector
 		}
 	}
 
+	/**
+	 * @brief Assigns new contents from initializer list
+	 * @param iList Initializer list to assign from
+	 */
 	void assign(std::initializer_list<T> iList)
 	{
 		if (iList.size() > m_capacity)
@@ -538,6 +670,12 @@ struct myVector
 		}
 	}
 
+	/**
+	 * @brief Assigns new contents from range
+	 * @tparam Input Iterator type
+	 * @param first Iterator to start of range
+	 * @param last Iterator to end of range
+	 */
 	template<class Input>
 	typename std::enable_if<!std::is_integral<Input>::value>::type
 	assign(Input first, Input last)
@@ -551,6 +689,12 @@ struct myVector
 		}
 	}
 
+	/**
+	 * @brief Access element at specified index with bounds checking
+	 * @param index Position of element to access
+	 * @return Reference to element at specified position
+	 * @throw std::out_of_range if index is out of range
+	 */
 	reference at(size_type index)
 	{
 		if (index >= m_size)
@@ -559,6 +703,12 @@ struct myVector
 		return m_data[index];
 	}
 
+	/**
+	 * @brief Access element at specified index with bounds checking
+	 * @param index Position of element to access
+	 * @return Const reference to element at specified position
+	 * @throw std::out_of_range if index is out of range
+	 */
 	const_reference at(size_type index) const
 	{
 		if (index >= m_size)
@@ -567,42 +717,72 @@ struct myVector
 		return m_data[index];
 	}
 
+	/**
+	 * @brief Direct access to underlying array
+	 * @return Pointer to underlying array
+	 */
 	pointer data()
 	{
 		return m_data;
 	}
 
+	/**
+	 * @brief Direct access to underlying array
+	 * @return Const pointer to underlying array
+	 */
 	const_pointer data() const
 	{
 		return m_data;
 	}
 
+	/**
+	 * @brief Returns reverse iterator to reverse beginning
+	 * @return Reverse iterator pointing to last element
+	 */
 	reverse_iterator rbegin()
 	{
 		return reverse_iterator(m_data + m_size);
 	}
 
+	/**
+	 * @brief Returns const reverse iterator to reverse beginning
+	 * @return Const reverse iterator pointing to last element
+	 */
 	reverse_const_iterator rbegin() const
 	{
 		return reverse_const_iterator(m_data + m_size);
 	}
 
+	/**
+	 * @brief Returns reverse iterator to reverse end
+	 * @return Reverse iterator pointing to theoretical element preceding first element
+	 */
 	reverse_iterator rend()
 	{
 		return reverse_iterator(m_data);
 	}
 
+	/**
+	 * @brief Returns const reverse iterator to reverse end
+	 * @return Const reverse iterator pointing to theoretical element preceding first element
+	 */
 	reverse_const_iterator rend() const
 	{
 		return reverse_const_iterator(m_data);
 	}
 
 private:
-	T* m_data;
-	size_t m_size;
-	size_t m_capacity;
+	T* m_data;        ///< Pointer to the underlying array
+	size_t m_size;    ///< Current number of elements
+	size_t m_capacity;///< Current capacity of the array
 };
 
+/**
+ * @brief Output stream operator for myVector
+ * @param os Output stream to write to
+ * @param vec Vector to output
+ * @return Reference to the output stream
+ */
 template<typename T, size_t N>
 std::ostream& operator<<(std::ostream& os, const myVector<T, N>& vec)
 {
