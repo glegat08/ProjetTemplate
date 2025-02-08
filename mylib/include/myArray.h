@@ -1,15 +1,30 @@
-
+/**
+ * @file myArray.h
+ * @brief Implementation of a fixed-size array with iterators and utility functions.
+ * @author Guillaume
+ * @date 08/02/2025
+ */
 
 #pragma once
 #include <initializer_list>
 #include "helper.h"
 
+ /**
+  * @struct myArray
+  * @brief Template class representing a fixed-size array with iterator support.
+  * @tparam T Type of elements stored in the array.
+  * @tparam N Size of the array.
+  */
 template<typename T, size_t N>
 struct myArray
 {
 	template<typename Type, size_t Size>
 	friend std::ostream& operator<<(std::ostream& os, const myArray<Type, Size>& tab);
 
+    /**
+     * @class iterator
+     * @brief Random-access iterator for myArray.
+     */
     class iterator
 	{
     public:
@@ -19,7 +34,10 @@ struct myArray
         using pointer = T*;
         using reference = T&;
 
-        // Constructor
+        /**
+         * @brief Constructor for iterator.
+         * @param ptr Pointer to the array element.
+         */
         iterator(pointer ptr) : m_ptr(ptr) {}
 
         // Dereference operators
@@ -130,7 +148,10 @@ struct myArray
         pointer m_ptr;
     };
 
-    // Custom const_iterator class
+    /**
+     * @class const_iterator
+     * @brief Random-access const iterator for myArray.
+     */
     class const_iterator
 	{
     public:
@@ -140,7 +161,10 @@ struct myArray
         using pointer = const T*;
         using reference = const T&;
 
-        // Constructor
+        /**
+         * @brief Constructor for const iterator.
+         * @param ptr Pointer to the array element.
+         */
         const_iterator(pointer ptr) : m_ptr(ptr) {}
 
         // Allow construction from non-const iterator
@@ -267,18 +291,19 @@ struct myArray
     using reverse_iterator = std::reverse_iterator<iterator>;
     using const_reverse_iterator = std::reverse_iterator<const_iterator>;
 
-	/**
-	 * Default constructor
-	 */
+    /**
+     * @brief Default constructor initializes array with default values.
+     */
 	myArray()
 	{
 		glg::fill(begin(), end(), value_type{});
 	}
 
-	/**
-	 * Constructor with an initializer list
-	 * @param list 
-	 */
+    /**
+	* @brief Constructor with initializer list.
+	* @param list Initial values for the array.
+	* @throws std::runtime_error if the size of the list does not match N.
+	*/
 	myArray(const std::initializer_list<value_type>& list)
 	{
 		if (list.size() != N)
@@ -287,15 +312,20 @@ struct myArray
 		glg::copy(list.begin(), list.end(), m_data);
 	}
 
-	/**
-	 * Copy constructor
-	 * @param tab 
-	 */
+    /**
+     * @brief Copy constructor.
+     * @param tab Another myArray to copy.
+     */
 	myArray(const myArray& tab)
 	{
 		glg::copy(tab.begin(), tab.end(), m_data);
 	}
 
+    /**
+     * @brief Copy assignment operator.
+     * @param tab Another myArray to copy.
+     * @return Reference to the current instance.
+     */
 	myArray& operator=(const myArray& tab)
 	{
 		if (this != &tab)
@@ -304,20 +334,30 @@ struct myArray
 		return *this;
 	}
 
+    /**
+     * @brief Access element at specified index without bounds checking.
+     * @param index Position of the element.
+     * @return Reference to the element.
+     */
 	reference operator[](const size_t& data_idx)
 	{
 		return m_data[data_idx];
 	}
 
+    /**
+     * @brief Const version of operator[].
+     * @param index Position of the element.
+     * @return Const reference to the element.
+     */
     const_reference operator[](const size_t& data_idx) const
     {
         return m_data[data_idx];
     }
 
-	/**
-	 * Return the first element of the array
-	 * @return m_data
-	 */
+    /**
+     * @brief Returns an iterator to the beginning of the array.
+     * @return iterator pointing to the first element.
+     */
 	iterator begin()
 	{
 		return m_data;
@@ -332,10 +372,10 @@ struct myArray
 		return m_data;
 	}
 
-	/**
-	 * Return the last element of the array
-	 * @return m_data + N
-	 */
+    /**
+    * @brief Returns an iterator to the end of the array.
+    * @return iterator pointing past the last element.
+    */
 	iterator end()
 	{
 		return m_data + N;
@@ -350,11 +390,12 @@ struct myArray
 		return m_data + N;
 	}
 
-	/**
-	 * 
-	 * @param pos 
-	 * @return m_data[pos]
-	 */
+    /**
+     * @brief Access element at specified index with bounds checking.
+     * @param index Position of the element.
+     * @return Reference to the element.
+     * @throws std::out_of_range if index is out of bounds.
+     */
 	reference at(size_t pos)
 	{
 		if (pos >= N)
@@ -363,6 +404,12 @@ struct myArray
 		return m_data[pos];
 	}
 
+    /**
+    * @brief Const version of at().
+    * @param index Position of the element.
+    * @return Const reference to the element.
+    * @throws std::out_of_range if index is out of bounds.
+    */
 	const_reference at(size_t pos) const
 	{
 		if (pos >= N)
@@ -371,82 +418,160 @@ struct myArray
 		return m_data[pos];
 	}
 
+	/**
+	 * @brief Returns a reference to the first element in the array
+	 * @return m_data[0]
+	 */
 	reference front()
 	{
 		return m_data[0];
 	}
+
+	/**
+	 * @brief Returns a const reference to the first element in the array
+	 * @return m_data[0]
+	 */
 	const_reference front() const
 	{
 		return m_data[0];
 	}
 
+	/**
+	 * @brief Returns a reference to the last element in the array.
+	 * @return m_data[N - 1]
+	 */
 	reference back()
 	{
 		return m_data[N - 1];
 	}
+
+	/**
+	 * @brief Returns a const reference to the last element in the array.
+	 * @return m_data[N - 1]
+	 */
 	const_reference back() const
 	{
 		return m_data[N - 1];
 	}
 
+	/**
+	 * @brief Returns a pointer to the underlying array.
+	 * @return m_data
+	 */
 	pointer data()
 	{
 		return m_data;
 	}
+
+	/**
+	 * @brief Returns a const pointer to the underlying array
+	 * @return m_data
+	 */
 	const_pointer data() const
 	{
 		return m_data;
 	}
 
-	// Capacity methods
+	
+	/**
+	 * @brief Returns the empty array
+	 * @return true (N = 0)
+	 */
 	bool empty() const
 	{
 		return N == 0;
 	}
 
+    /**
+     * @brief Returns the size of the array.
+     * @return Number of elements in the array.
+     */
 	size_type size() const
 	{
 		return N;
 	}
 
+	/**
+	 * @brief Returns the maximum size of the array
+	 * @return Number of elements in the array
+	 */
 	size_type max_size() const
 	{
 		return N;
 	}
 
-	// New iterator methods
+	/**
+	 * @brief Returns the end of the array
+	 * @return an iterator to the end of the array
+	 */
 	reverse_iterator rbegin()
 	{
 		return reverse_iterator(end());
 	}
+
+	/**
+	 * @brief Returns the beginning of the array
+	 * @return an iterator to the beginning of the array
+	 */
 	reverse_iterator rend()
 	{
 		return reverse_iterator(begin());
 	}
+
+	/**
+	 * @brief Const version of rbegin()
+	 * @return a const iterator to the end of the array
+	 */
 	const_reverse_iterator rbegin() const
 	{
 		return const_reverse_iterator(end());
 	}
+
+	/**
+	 * @brief Const version of rend()
+	 * @return a const iterator to the beginning of the array
+	 */
 	const_reverse_iterator rend() const
 	{
 		return const_reverse_iterator(begin());
 	}
 
+
+	/**
+	 * @brief Returns the beginning of the array
+	 * @return begin()
+	 */
 	const_iterator cbegin() const
 	{
 		return begin();
 	}
+
+	/**
+	 * @brief Returns the end of the array
+	 * @return end()
+	 */
 	const_iterator cend() const
 	{
 		return end();
 	}
 
+    /**
+    * @brief Destructor.
+    */
 	~myArray() = default;
 
 private:
-	value_type m_data[N];
+	value_type m_data[N]; ///< Internal array storage.
 };
 
+/**
+ * @brief Overloaded stream output operator for myArray.
+ * @tparam Type Element type.
+ * @tparam Size Array size.
+ * @param os Output stream.
+ * @param tab Array to print.
+ * @return Modified output stream.
+ */
 template<typename Type, size_t Size>
 std::ostream& operator<<(std::ostream& os, const myArray<Type, Size>& tab)
 {

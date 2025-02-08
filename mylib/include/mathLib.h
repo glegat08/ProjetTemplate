@@ -1,3 +1,10 @@
+/**
+ * @file mathLib.h
+ * @brief Implementation of a Math namespace for products.
+ * @author Guillaume
+ * @date 08/02/2025
+ */
+
 #pragma once
 #include <iostream>
 #include "myVector.h"
@@ -61,4 +68,53 @@ namespace Math
 		return result;
 	}
 
+	template<typename type, size_t size>
+	type Norme(const myVectorND<type, size>& data)
+	{
+		type result = type{};
+		for (auto it = data.begin(); it != data.end(); ++it)
+		{
+			result += (*it * *it);
+		}
+		return std::sqrt(result);
+	};
+
+	template<typename type, size_t size>
+	type Norme(const myVector<type, size>& data)
+	{
+		type result = type{};
+		for (auto it = data.begin(); it != data.end(); ++it)
+		{
+			result += (*it * *it);
+		}
+		return std::sqrt(result);
+	};
+
+	template<typename type, size_t size>
+	myVectorND<type, size> VectorNormalization(const myVectorND<type, size>& data)
+	{
+		myVectorND<type, size> result;
+		type norme = Norme<type, size>(data);
+		auto itresult = result.begin();
+		for (auto it = data.begin(); it != data.end(); ++it)
+		{
+			*itresult = (*it / norme);
+			++itresult;
+		}
+		return result;
+	};
+
+	template<typename type, size_t size>
+	myVector<type, size> VectorNormalization(const myVector<type, size>& data)
+	{
+		myVector<type, size> result;
+		type norme = Norme<type, size>(data);
+		auto itresult = result.begin();
+		for (auto it = data.begin(); it != data.end(); ++it)
+		{
+			*itresult = (*it / norme);
+			++itresult;
+		}
+		return result;
+	};
 };

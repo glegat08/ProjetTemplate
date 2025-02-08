@@ -1,446 +1,40 @@
-//#pragma once
-//#include <iterator>
-//#include <stdexcept>
-//#include "helper.h"
-//
-//template<typename T, size_t N>
-//struct myList
-//{
-//    class iterator
-//	{
-//    public:
-//        using iterator_category = std::bidirectional_iterator_tag;
-//        using value_type = T;
-//        using difference_type = std::ptrdiff_t;
-//        using pointer = T*;
-//        using reference = T&;
-//
-//        iterator(pointer ptr) : m_ptr(ptr) {}
-//
-//        reference operator*()
-//        {
-//            return *m_ptr;
-//        }
-//        pointer operator->()
-//        {
-//            return m_ptr;
-//        }
-//
-//        // Random access operations
-//        iterator& operator+=(difference_type n)
-//        {
-//            m_ptr += n;
-//            return *this;
-//        }
-//
-//        iterator operator+(difference_type n) const
-//        {
-//            iterator tmp = *this;
-//            return tmp += n;
-//        }
-//
-//        iterator& operator-=(difference_type n)
-//        {
-//            m_ptr -= n;
-//            return *this;
-//        }
-//
-//        iterator operator-(difference_type n) const
-//        {
-//            iterator tmp = *this;
-//            return tmp -= n;
-//        }
-//
-//        difference_type operator-(const iterator& other) const
-//        {
-//            return m_ptr - other.m_ptr;
-//        }
-//
-//        reference operator[](difference_type n) const
-//        {
-//            return *(*this + n);
-//        }
-//
-//        iterator& operator++()
-//        {
-//            ++m_ptr;
-//            return *this;
-//        }
-//
-//        iterator& operator--()
-//        {
-//            --m_ptr;
-//            return *this;
-//        }
-//
-//        iterator operator++(int)
-//        {
-//            iterator tmp = *this;
-//            ++m_ptr;
-//            return tmp;
-//        }
-//
-//        iterator operator--(int)
-//        {
-//            iterator tmp = *this;
-//            --m_ptr;
-//            return tmp;
-//        }
-//
-//        friend bool operator==(const iterator& lhs, const iterator& rhs)
-//        {
-//            return lhs.m_ptr == rhs.m_ptr;
-//        }
-//
-//        friend bool operator!=(const iterator& lhs, const iterator& rhs)
-//        {
-//            return lhs.m_ptr != rhs.m_ptr;
-//        }
-//
-//        friend bool operator<(const iterator& lhs, const iterator& rhs)
-//        {
-//            return lhs.m_ptr < rhs.m_ptr;
-//        }
-//
-//        friend bool operator>(const iterator& lhs, const iterator& rhs)
-//        {
-//            return rhs < lhs;
-//        }
-//
-//        friend bool operator<=(const iterator& lhs, const iterator& rhs)
-//        {
-//            return !(rhs < lhs);
-//        }
-//
-//        friend bool operator>=(const iterator& lhs, const iterator& rhs)
-//        {
-//            return !(lhs < rhs);
-//        }
-//
-//    private:
-//        pointer m_ptr;
-//    };
-//
-//    class const_iterator
-//	{
-//    public:
-//        using iterator_category = std::bidirectional_iterator_tag;
-//        using value_type = T;
-//        using difference_type = std::ptrdiff_t;
-//        using pointer = const T*;
-//        using reference = const T&;
-//
-//        const_iterator(pointer ptr) : m_ptr(ptr) {}
-//
-//        reference operator*() const
-//        {
-//            return *m_ptr;
-//        }
-//
-//        pointer operator->() const
-//        {
-//            return m_ptr;
-//        }
-//
-//        // Random access operations
-//        const_iterator& operator+=(difference_type n)
-//        {
-//            m_ptr += n;
-//            return *this;
-//        }
-//
-//        const_iterator operator+(difference_type n) const
-//        {
-//            const_iterator tmp = *this;
-//            return tmp += n;
-//        }
-//
-//        const_iterator& operator-=(difference_type n)
-//        {
-//            m_ptr -= n;
-//            return *this;
-//        }
-//
-//        const_iterator operator-(difference_type n) const
-//        {
-//            const_iterator tmp = *this;
-//            return tmp -= n;
-//        }
-//
-//        difference_type operator-(const const_iterator& other) const
-//        {
-//            return m_ptr - other.m_ptr;
-//        }
-//
-//        reference operator[](difference_type n) const
-//        {
-//            return *(*this + n);
-//        }
-//
-//        const_iterator& operator++()
-//        {
-//            ++m_ptr;
-//            return *this;
-//        }
-//
-//        const_iterator operator++(int)
-//        {
-//            const_iterator tmp = *this;
-//            ++m_ptr;
-//            return tmp;
-//        }
-//
-//        const_iterator& operator--()
-//        {
-//            --m_ptr;
-//            return *this;
-//        }
-//
-//        const_iterator operator--(int)
-//        {
-//            const_iterator tmp = *this;
-//            --m_ptr;
-//            return tmp;
-//        }
-//
-//        friend bool operator==(const const_iterator& lhs, const const_iterator& rhs)
-//        {
-//            return lhs.m_ptr == rhs.m_ptr;
-//        }
-//
-//        friend bool operator!=(const const_iterator& lhs, const const_iterator& rhs)
-//        {
-//            return lhs.m_ptr != rhs.m_ptr;
-//        }
-//
-//        friend bool operator<(const const_iterator& lhs, const const_iterator& rhs)
-//        {
-//            return lhs.m_ptr < rhs.m_ptr;
-//        }
-//
-//        friend bool operator>(const const_iterator& lhs, const const_iterator& rhs)
-//        {
-//            return rhs < lhs;
-//        }
-//
-//        friend bool operator<=(const const_iterator& lhs, const const_iterator& rhs)
-//        {
-//            return !(rhs < lhs);
-//        }
-//
-//        friend bool operator>=(const const_iterator& lhs, const const_iterator& rhs)
-//        {
-//            return !(lhs < rhs);
-//        }
-//
-//    private:
-//        pointer m_ptr;
-//    };
-//
-//
-//    myList() : m_size(0) {}
-//
-//	myList(std::initializer_list <T> list) : m_size(list.size())
-//	{
-//		glg::copy(list.begin(), list.end(), m_data);
-//	}
-//
-//    void push_front(const T& value)
-//	{
-//        if (m_size >= N)
-//            throw std::runtime_error("List is full");
-//
-//        glg::move_backward(m_data, m_data + m_size, m_data + m_size + 1);
-//        m_data[0] = value;
-//        ++m_size;
-//    }
-//
-//    void push_back(const T& value)
-//	{
-//        if (m_size <= N)
-//            throw std::runtime_error("List is full");
-//
-//        m_data[++m_size] = value;
-//    }
-//
-//    void pop_front()
-//	{
-//        if (m_size == 0)
-//            throw std::runtime_error("List is empty");
-//
-//        glg::move(m_data + 1, m_data + m_size, m_data);
-//        --m_size;
-//    }
-//
-//    void pop_back()
-//	{
-//        if (m_size == 0)
-//            throw std::runtime_error("List is empty");
-//
-//        --m_size;
-//    }
-//
-//    reference front()
-//	{
-//        if (m_size == 0)
-//            throw std::runtime_error("List is empty");
-//
-//        return m_data[0];
-//    }
-//
-//    reference back()
-//	{
-//        if (m_size == 0)
-//            throw std::runtime_error("List is empty");
-//
-//        return m_data[m_size - 1];
-//    }
-//
-//    size_type size() const
-//    {
-//	    return m_size;
-//    }
-//
-//    bool empty() const
-//    {
-//	    return m_size == 0;
-//    }
-//
-//    bool full() const
-//    {
-//	    return m_size == N;
-//    }
-//
-//    void clear()
-//    {
-//	    m_size = 0;
-//    }
-//
-//    iterator begin()
-//    {
-//	    return iterator(m_data);
-//    }
-//    const_iterator begin() const
-//    {
-//	    return const_iterator(m_data);
-//    }
-//
-//    iterator end()
-//    {
-//	    return iterator(m_data + m_size);
-//    }
-//    const_iterator end() const
-//    {
-//	    return const_iterator(m_data + m_size);
-//    }
-//
-//    size_type max_size() const
-//    {
-//        return m_size;
-//    }
-//
-
-//
-//    pointer data()
-//    {
-//        return m_data;
-//    }
-//
-//    const_pointer data() const
-//    {
-//        return m_data;
-//    }
-//
-//
-//	iterator insert(iterator pos, const T& value)
-//    {
-//		if (pos == end())
-//		{
-//			push_back(value);
-//			return end() - 1;
-//		}
-//		else
-//		{
-//			iterator it = end();
-//			while (it != pos)
-//			{
-//				*it = *(it - 1);
-//				--it;
-//			}
-//			*pos = value;
-//			++m_size;
-//			return pos;
-//		}
-//    }
-//
-//    iterator erase(iterator pos)
-//    {
-//        if (pos == end())
-//            return end();
-//
-//        iterator next = pos;
-//        ++next;
-//        while (next != end())
-//        {
-//            *pos = *next;
-//            ++pos;
-//            ++next;
-//        }
-//        --m_size;
-//
-//        return pos;
-//    }
-//
-
-//
-//    size_type getSize() const
-//    {
-//        return m_size;
-//    }
-//
-//
-//    template<typename T, size_t N>
-//	friend std::ostream& operator<<(std::ostream& os, const myList<T, N>& vec);
-//
-//private:
-//    T m_data[N];
-//    size_t m_size;
-//};
-//
-//template<typename T, size_t N>
-//std::ostream& operator<<(std::ostream& os, const myList<T, N>& list)
-//{
-//    if (list.getSize() == 0)
-//    {
-//        os << "Empty list";
-//        return os;
-//    }
-//
-//    os << "(";
-//    for (auto i = 0; i < list.getSize() - 1; ++i)
-//        os << list.m_data[i] << ", ";
-//
-//    os << list.m_data[list.getSize() - 1] << ")";
-//
-//    return os;
-//}
+/**
+ * @file myList.h
+ * @brief Implementation of a list with iterators and utility functions.
+ * @author Guillaume
+ * @date 08/02/2025
+ */
 
 #pragma once
 #include <iterator>
 #include <stdexcept>
 
+ /**
+  * @struct myList
+  * @brief Template struct representing a list with iterators.
+  * @tparam T Type of elements stored in the array.
+  */
 template<typename T>
 struct myList
 {
+    /** Structure representing a node in the doubly linked list. */
     struct Node
     {
-        T data;
-        Node* prev;
-        Node* next;
+        T data; /**< Data stored in the node. */
+        Node* prev; /**< Pointer to the previous node. */
+        Node* next; /**< Pointer to the next node. */
 
+        /**
+         * @brief Node constructor.
+         *  @param value The value to store in the node.
+         */
         Node(const T& value) : data(value), prev(nullptr), next(nullptr) {}
     };
 
+    /**
+	* @class iterator
+	 * @brief Random-access iterator for myList
+	 */
     class iterator
 	{
     public:
@@ -450,23 +44,43 @@ struct myList
         using pointer = T*;
         using reference = T&;
 
+        /**
+         * @brief Iterator constructor.
+         *  @param node The node the iterator points to.
+         */
         iterator(Node* node) : m_node(node) {}
 
+        /**
+         * @brief Dereference the iterator to access the data.
+         *  @return The data of the node the iterator points to.
+         */
         reference operator*()
         {
 	        return m_node->data;
         }
+        /**
+         * @brief Arrow operator to access the data through the iterator.
+         *  @return Pointer to the data of the node the iterator points to.
+         */
         pointer operator->()
         {
 	        return &m_node->data;
         }
 
+        /**
+		 * @brief ++ operator to move the iterator to the next node.
+		 * @return Iterator pointing to the next node.
+         */
         iterator& operator++()
     	{
             m_node = m_node->next;
             return *this;
         }
 
+        /**
+		 * @brief ++ operator to move the iterator to the next node.
+		 * @return Iterator pointing to the next node.
+         */
         iterator operator++(int)
     	{
             iterator tmp = *this;
@@ -474,6 +88,10 @@ struct myList
             return tmp;
         }
 
+        /**
+		 * @brief -- operator to move the iterator to the previous node.
+		 * @return Iterator pointing to the previous node.
+         */
         iterator& operator--()
         {
             if (m_node != nullptr)
@@ -483,6 +101,10 @@ struct myList
             return *this;
         }
 
+        /**
+         * @brief -- operator to move the iterator to the previous node.
+         * @return Iterator pointing to the previous node.
+         */
         iterator operator--(int)
     	{
             iterator tmp = *this;
@@ -506,6 +128,10 @@ struct myList
         Node* m_node;
     };
 
+    /**
+     * @brief Class for const iterator
+	 * All the functions are the same as the iterator class, except that the operator* and operator-> return a const reference or pointer to the data.
+     */
     class const_iterator
     {
     public:
@@ -581,8 +207,15 @@ struct myList
     using reverse_iterator = std::reverse_iterator<iterator>;
     using reverse_const_iterator = std::reverse_iterator<const_iterator>;
 
+    /**
+	 * @brief Default constructor for the myList
+     */
     myList() : m_start(nullptr), m_end(nullptr), m_size(0) {}
 
+    /**
+	 * @brief Constructor with initializer list
+     * @param init 
+     */
     myList(std::initializer_list<T> init) : myList()
 	{
         for (const auto& value : init) 
@@ -591,11 +224,18 @@ struct myList
         }
     }
 
+    /**
+	 * @brief Destructor for the myList
+     */
     ~myList()
 	{
         clear();
     }
 
+    /**
+	 * @brief Copy constructor for the myList
+     * @param other 
+     */
     myList(const myList& other) : myList()
 	{
         for (Node* curr = other.m_start; curr != nullptr; curr = curr->next) 
@@ -604,6 +244,11 @@ struct myList
         }
     }
 
+    /**
+	 * @brief Copy assignment operator for the myList
+     * @param other 
+     * @return 
+     */
     myList& operator=(const myList& other)
 	{
         if (this != &other) 
@@ -617,6 +262,10 @@ struct myList
         return *this;
     }
 
+    /**
+	 * @brief Push the value at the front of the list
+     * @param value 
+     */
     void push_front(const T& value)
 	{
         Node* new_node = new Node(value);
@@ -631,6 +280,10 @@ struct myList
         ++m_size;
     }
 
+    /**
+	 * @brief Push the value at the back of the list
+     * @param value 
+     */
     void push_back(const T& value)
 	{
         Node* new_node = new Node(value);
@@ -646,6 +299,9 @@ struct myList
         ++m_size;
     }
 
+    /**
+	 * @brief Delete the first element of the list
+     */
     void pop_front()
 	{
         if (empty()) 
@@ -663,6 +319,9 @@ struct myList
         --m_size;
     }
 
+    /**
+     * @brief Delete the last element of the list
+     */
     void pop_back()
 	{
         if (empty()) 
@@ -680,6 +339,12 @@ struct myList
         --m_size;
     }
 
+    /**
+	 * @brief Insert the value at the position
+     * @param pos 
+     * @param value 
+	 * @return an iterator pointing to the inserted value
+     */
     iterator insert(iterator pos, const T& value)
 	{
         if (pos.m_node == m_start) 
@@ -700,6 +365,11 @@ struct myList
         return iterator(new_node);
     }
 
+    /**
+	 * @brief Erase the element at the position
+     * @param pos 
+	 * @return an iterator pointing to the next element
+     */
     iterator erase(iterator pos)
 	{
         Node* curr = pos.m_node;
@@ -724,6 +394,9 @@ struct myList
         return iterator(next);
     }
 
+    /**
+	 * @brief Clear the list
+     */
     void clear()
 	{
         while (!empty()) 
@@ -732,6 +405,10 @@ struct myList
         }
     }
 
+    /**
+     * @brief Returns the first element of the list
+	 * @return m_start->data
+     */
     T& front()
 	{
         if (empty()) 
@@ -740,6 +417,10 @@ struct myList
         return m_start->data;
     }
 
+    /**
+     * @brief Const version of front()
+     * @return 
+     */
     const T& front() const
 	{
         if (empty()) 
@@ -748,6 +429,10 @@ struct myList
         return m_start->data;
     }
 
+    /**
+     * @brief Returns the last element of the list
+     * @return m_end->data
+     */
     T& back()
 	{
         if (empty()) 
@@ -756,39 +441,75 @@ struct myList
         return m_end->data;
     }
 
+    /**
+     * @brief Const version of back()
+     * @return 
+     */
     const T& back() const
 	{
         if (empty()) throw std::runtime_error("List is empty");
         return m_end->data;
     }
 
+    /**
+	 * @brief Returns an iterator to the first element of the list
+	 * @return iterator to m_start
+     */
     iterator begin()
     {
 	    return iterator(m_start);
     }
+    /**
+	 * @brief Returns an iterator to the last element of the list
+     * @return iterator to nullptr
+     */
     iterator end()
     {
 	    return iterator(nullptr);
     }
+    /**
+     * @brief Const version of begin()
+     * @return 
+     */
     const_iterator begin() const
     {
         return const_iterator(m_start);
     }
+
+    /**
+     * @brief Const version of end()
+     * @return 
+     */
     const_iterator end() const
     {
         return const_iterator(nullptr);
     }
 
 
+    /**
+     * @brief Returns the size of the list
+     * @return m_size
+     */
     size_t size() const
     {
 	    return m_size;
     }
+
+    /**
+	 * @brief Returns true if the list is empty
+	 * @return m_size == 0
+     */
     bool empty() const
     {
 	    return m_size == 0;
     }
 
+    /**
+     * @brief Overloaded stream output operator for myList
+     * @param os Output Stream
+	 * @param list List to be printed
+	 * @return modified output stream
+     */
     friend std::ostream& operator<<(std::ostream& os, const myList& list)
 	{
         if (list.empty()) 
@@ -808,6 +529,10 @@ struct myList
         return os;
     }
 
+    /**
+	 * @brief Resize the list
+     * @param count 
+     */
     void resize(size_type count)
     {
         if (count == m_size)
@@ -825,11 +550,20 @@ struct myList
         }
     }
 
+    /**
+     * @brief Returns the maximum size of the list
+     * @return m_size
+     */
     size_type max_size() const
     {
         return m_size;
     }
 
+    /**
+     * @brief Access element at specified index without bounds checking.
+     * @param index Position of the element.
+     * @return Reference to the element.
+     */
     T& operator[](size_t index)
     {
         if (index >= m_size)
@@ -843,6 +577,11 @@ struct myList
         return current->data;
     }
 
+    /**
+	* @brief Const version of operator[].
+	* @param index Position of the element.
+	* @return Const reference to the element.
+	*/
     const T& operator[](size_t index) const
     {
         if (index >= m_size)
@@ -877,6 +616,11 @@ struct myList
     }
 
 
+    /**
+	 * @brief Assigns new contents to the list, replacing its current contents, and modifying its size accordingly.
+     * @param count 
+     * @param value 
+     */
     void assign(size_t count, const T& value)
     {
         clear();
@@ -886,6 +630,10 @@ struct myList
         }
     }
 
+    /**
+	 * @brief Assigns new contents to the list, replacing its current contents, and modifying its size accordingly.
+     * @param iList 
+     */
     void assign(std::initializer_list<T> iList)
     {
         clear();
@@ -895,6 +643,13 @@ struct myList
         }
     }
 
+    /**
+	 * @brief Assigns new contents to the list, replacing its current contents, and modifying its size accordingly.
+     * @tparam Input 
+     * @param first 
+     * @param last 
+     * @return 
+     */
     template<class Input>
     typename std::enable_if<!std::is_integral<Input>::value>::type
 	assign(Input first, Input last)
@@ -907,6 +662,11 @@ struct myList
         }
     }
 
+    /**
+	 * @brief Returns a reference to the element at specified location pos, with bounds checking.
+     * @param index 
+     * @return current->data
+     */
     reference at(size_type index)
     {
         if (index >= m_size)
@@ -920,6 +680,11 @@ struct myList
         return current->data;
     }
 
+    /**
+     * @brief Const version of at()
+     * @param index 
+     * @return a const reference of current->data
+     */
     const_reference at(size_type index) const
     {
         if (index >= m_size)

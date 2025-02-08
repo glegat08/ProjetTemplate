@@ -1,3 +1,10 @@
+/**
+ * @file myVectorND.h
+ * @brief Implementation of a vector of N-Dimensions
+ * @author Guillaume (and thank you Kroktur for your help)
+ * @date 08/02/2025
+ */
+
 #pragma once
 #include <exception>
 #include <initializer_list>
@@ -80,11 +87,11 @@ public:
     }
     bool Empty()
     {
-        return m_data.Empty();
+        return m_data.empty();
     }
     bool Empty() const
     {
-        return  m_data.Empty();
+        return  m_data.empty();
     }
     pointer data()
     {

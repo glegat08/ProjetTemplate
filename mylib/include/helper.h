@@ -1,3 +1,10 @@
+/**
+ * @file helper.h
+ * @brief Implementation of a namespace with utility functions
+ * @author Guillaume
+ * @date 08/02/2025
+ */
+
 #pragma once
 #include <vector>
 
@@ -49,123 +56,132 @@ namespace glg
 	template<typename Container>
 	void swap(Container& first, Container& second)
 	{
-		Container temp = first;
+		auto temp = first;
 		first = second;
 		second = temp;
 	}
 
-	template<typename Random>
-	void InsertionSort(Random first, Random last)
-	{
-		for (auto it = first; it != last; ++it)
-		{
-			auto key = *it;
-			auto j = it;
+    template<typename Iterator>
+    void InsertionSort(Iterator first, Iterator last)
+    {
+        if (first == last) return;
 
-			while (j != first)
-			{
-				auto prev = j;
-				--prev;
+        for (auto it = first; it != last; ++it)
+        {
+            auto key = *it;
+            auto j = it;
 
-				if (*prev <= key)
-					break;
+            while (j != first)
+            {
+                auto prev = j;
+                --prev;
 
-				*j = *prev;
-				j = prev;
-			}
-			*j = key;
-		}
-	}
+                if (*prev <= key)
+                    break;
 
-	template<typename Random>
-	void BubbleSort(Random first, Random last)
-	{
-		bool swapped;
-		do
-		{
-			swapped = false;
-			for (auto it = first; it != last; ++it)
-			{
-				auto next = it;
-				++next;
-				if (next == last)
-					break;
-				if (*it > *next)
-				{
-					std::swap(*it, *next);
-					swapped = true;
-				}
-			}
-			if (last != first) 
-			{
-				--last;
-			}
-		} while (swapped);
-	}
+                *j = *prev;
+                j = prev;
+            }
+            *j = key;
+        }
+    }
 
-	template<typename Random>
-	void merge(Random first, Random mid, Random last)
-	{
-		std::vector<typename std::iterator_traits<Random>::value_type> temp(std::distance(first, last));
-		auto left = first;
-		auto right = mid;
-		auto mergeIt = temp.begin();
+    template<typename Iterator>
+    void BubbleSort(Iterator first, Iterator last)
+    {
+        if (first == last) return;
 
-		while (left != mid && right != last)
-		{
-			if (*left <= *right)
-			{
-				*mergeIt = *left;
-				++left;
-			}
-			else
-			{
-				*mergeIt = *right;
-				++right;
-			}
-			++mergeIt;
-		}
+        bool swapped;
+        do {
+            swapped = false;
+            auto current = first;
+            auto next = current;
+            ++next;
 
-		while (left != mid)
-		{
-			*mergeIt = *left;
-			++left;
-			++mergeIt;
-		}
-		while (right != last)
-		{
-			*mergeIt = *right;
-			++right;
-			++mergeIt;
-		}
+            while (next != last)
+            {
+                if (*current > *next)
+                {
+                    glg::swap(*current, *next);
+                    swapped = true;
+                }
+                ++current;
+                ++next;
+            }
 
-		std::move(temp.begin(), temp.end(), first);
-	}
+            auto prev = last;
+            --prev;
+            last = prev;
 
+        } while (swapped);
+    }
 
-	template<typename Random>
-	void FusionSort(Random first, Random last)
-	{
-		auto size = std::distance(first, last);
-		if (size <= 1) return;
+    template<typename Iterator>
+    void merge(Iterator first, Iterator mid, Iterator last)
+    {
+        using ValueType = typename std::iterator_traits<Iterator>::value_type;
+        std::vector<ValueType> temp;
 
-		Random mid = first;
-		std::advance(mid, size / 2);
+        auto left = first;
+        auto right = mid;
 
-		FusionSort(first, mid);
-		FusionSort(mid, last);
-		merge(first, mid, last);
-	}
+        while (left != mid && right != last)
+        {
+            if (*left <= *right)
+            {
+                temp.push_back(*left);
+                ++left;
+            }
+            else
+            {
+                temp.push_back(*right);
+                ++right;
+            }
+        }
 
-	template<typename Container>
-	void sort(Container& container)
-	{
-		size_t size = container.size();
-		if (size >= 100000)
-			FusionSort(container.begin(), container.end());
-		else if (size >= 10000)
-			BubbleSort(container.begin(), container.end());
-		else
-			InsertionSort(container.begin(), container.end());
-	}
+        while (left != mid)
+        {
+            temp.push_back(*left);
+            ++left;
+        }
+
+        while (right != last)
+        {
+            temp.push_back(*right);
+            ++right;
+        }
+
+        auto it = first;
+        for (const auto& val : temp)
+        {
+            *it = val;
+            ++it;
+        }
+    }
+
+    template<typename Iterator>
+    void FusionSort(Iterator first, Iterator last)
+    {
+        auto distance = std::distance(first, last);
+        if (distance <= 1) return;
+
+        auto mid = first;
+        std::advance(mid, distance / 2);
+
+        FusionSort(first, mid);
+        FusionSort(mid, last);
+        merge(first, mid, last);
+    }
+
+    template<typename Container>
+    void sort(Container& container)
+    {
+        auto size = std::distance(container.begin(), container.end());
+        if (size <= 16)
+            InsertionSort(container.begin(), container.end());
+        else if (size <= 1000)
+            BubbleSort(container.begin(), container.end());
+        else
+            FusionSort(container.begin(), container.end());
+    }
 };

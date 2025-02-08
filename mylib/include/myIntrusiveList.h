@@ -1,3 +1,10 @@
+/**
+ * @file myIntrusiveList.h
+ * @brief Implementation of an intrusive list with iterators and utility functions.
+ * @author Guillaume (and thank you Kroktur for your help)
+ * @date 08/02/2025
+ */
+
 #pragma once 
 #include <exception>
 #include <initializer_list>
@@ -45,6 +52,10 @@ namespace PLEASE
 		{
 			return data >= other.data;
 		}
+		bool operator=(const Node& other)
+		{
+			return data = other.data;
+		}
 	};
 
 	template <typename type>
@@ -72,6 +83,7 @@ namespace PLEASE
 		using const_pointer = const PLEASE::Node<type>*;
 		using reference = PLEASE::Node<type>&;
 		using const_reference = const PLEASE::Node<type>&;
+
 		~myIntrusiveList() { clear(); }
 		myIntrusiveList(): m_size(0) { Head.Next = &Tail;  Tail.Previous = &Head; }
 		myIntrusiveList(const myIntrusiveList& tab): m_size(0)

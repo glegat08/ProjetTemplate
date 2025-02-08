@@ -1,3 +1,10 @@
+/**
+ * @file myVector.h
+ * @brief Implementation of a vector with iterators and utility functions.
+ * @author Guillaume
+ * @date 08/02/2025
+ */
+
 #pragma once
 #include <iterator>
 #include <stdexcept>
