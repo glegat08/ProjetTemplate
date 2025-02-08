@@ -10,6 +10,17 @@
 
 namespace glg
 {
+
+    /**
+     * @brief Copy elements from one range to another.
+     *
+     * @tparam InputIt Input iterator type.
+     * @tparam OutputIt Output iterator type.
+     * @param firstElem Iterator to the first element in the input range.
+     * @param lastElem Iterator to the last element in the input range.
+     * @param output Iterator to the first element in the output range.
+     * @return OutputIt Iterator to the element past the last element copied.
+     */
 	template<class InputIt, class OutputIt>
 	OutputIt copy(InputIt firstElem, InputIt lastElem, OutputIt output)
 	{
@@ -19,6 +30,18 @@ namespace glg
 		return output;
 	}
 
+    /**
+     * @brief Transform elements in a range using a specified operation.
+     *
+     * @tparam Input Input iterator type.
+     * @tparam Output Output iterator type.
+     * @tparam Op Unary operation type.
+     * @param firstElem Iterator to the first element in the input range.
+     * @param secondElem Iterator to the last element in the input range.
+     * @param startOfElem Iterator to the first element in the output range.
+     * @param operation Unary operation to apply to each element.
+     * @return Output Iterator to the element past the last element transformed.
+     */
 	template<typename Input, typename Output, typename Op>
 	Output transform(Input firstElem, Input secondElem, Output startOfElem, Op operation)
 	{
@@ -28,6 +51,16 @@ namespace glg
 		return startOfElem;
 	}
 
+    /**
+     * @brief Move elements from one range to another.
+     *
+     * @tparam Input Input iterator type.
+     * @tparam Output Output iterator type.
+     * @param firstElem Iterator to the first element in the input range.
+     * @param lastElem Iterator to the last element in the input range.
+     * @param new_first Iterator to the first element in the output range.
+     * @return Output Iterator to the element past the last element moved.
+     */
 	template<class Input, class Output>
 	Output move(Input firstElem, Input lastElem, Output new_first)
 	{
@@ -37,6 +70,16 @@ namespace glg
 		return new_first;
 	}
 
+    /**
+     * @brief Move elements from one range to another in reverse order.
+     *
+     * @tparam firstIt Input iterator type.
+     * @tparam secondIt Output iterator type.
+     * @param firstElem Iterator to the first element in the input range.
+     * @param lastElem Iterator to the last element in the input range.
+     * @param new_last Iterator to the last element in the output range.
+     * @return secondIt Iterator to the element past the last element moved.
+     */
 	template<class firstIt, class secondIt>
 	secondIt move_backward(firstIt firstElem, firstIt lastElem, secondIt new_last)
 	{
@@ -46,6 +89,15 @@ namespace glg
 		return new_last;
 	}
 
+    /**
+     * @brief Fill a range with a specified value.
+     *
+     * @tparam ForwardIt Forward iterator type.
+     * @tparam T Value type.
+     * @param first Iterator to the first element in the range.
+     * @param last Iterator to the last element in the range.
+     * @param value The value to fill the range with.
+     */
 	template<typename ForwardIt, typename T>
 	void fill(ForwardIt first, ForwardIt last, const T& value)
 	{
@@ -53,6 +105,13 @@ namespace glg
 			*first = value;
 	}
 
+    /**
+     * @brief Swap the contents of two containers.
+     *
+     * @tparam Container Container type.
+     * @param first The first container.
+     * @param second The second container.
+     */
 	template<typename Container>
 	void swap(Container& first, Container& second)
 	{
@@ -61,6 +120,13 @@ namespace glg
 		second = temp;
 	}
 
+    /**
+     * @brief Sort a range using insertion sort.
+     *
+     * @tparam Iterator Iterator type.
+     * @param first Iterator to the first element in the range.
+     * @param last Iterator to the last element in the range.
+     */
     template<typename Iterator>
     void InsertionSort(Iterator first, Iterator last)
     {
@@ -86,6 +152,13 @@ namespace glg
         }
     }
 
+    /**
+     * @brief Sort a range using bubble sort.
+     *
+     * @tparam Iterator Iterator type.
+     * @param first Iterator to the first element in the range.
+     * @param last Iterator to the last element in the range.
+     */
     template<typename Iterator>
     void BubbleSort(Iterator first, Iterator last)
     {
@@ -116,6 +189,14 @@ namespace glg
         } while (swapped);
     }
 
+    /**
+     * @brief Merge two sorted ranges into one sorted range.
+     *
+     * @tparam Iterator Iterator type.
+     * @param first Iterator to the first element in the first range.
+     * @param mid Iterator to the first element in the second range.
+     * @param last Iterator to the last element in the second range.
+     */
     template<typename Iterator>
     void merge(Iterator first, Iterator mid, Iterator last)
     {
@@ -159,6 +240,13 @@ namespace glg
         }
     }
 
+    /**
+     * @brief Sort a range using merge sort.
+     *
+     * @tparam Iterator Iterator type.
+     * @param first Iterator to the first element in the range.
+     * @param last Iterator to the last element in the range.
+     */
     template<typename Iterator>
     void FusionSort(Iterator first, Iterator last)
     {
@@ -173,6 +261,12 @@ namespace glg
         merge(first, mid, last);
     }
 
+    /**
+     * @brief Sort a container using an appropriate sorting algorithm.
+     *
+     * @tparam Container Container type.
+     * @param container The container to sort.
+     */
     template<typename Container>
     void sort(Container& container)
     {

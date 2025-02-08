@@ -12,6 +12,17 @@
 
 namespace Math
 {
+
+	/**
+	 * @brief Computes the scalar product of two vectors.
+	 *
+	 * @tparam T The type of elements in the vectors.
+	 * @tparam N The size of the vectors.
+	 * @param vec1 The first vector.
+	 * @param vec2 The second vector.
+	 * @return The scalar product of the two vectors.
+	 * @throw std::runtime_error if the sizes of the vectors are not equal.
+	 */
 	template<typename T, size_t N>
 	auto scalarProduct(const myVector<T, N>& vec1, const myVector<T, N>& vec2)
 	{
@@ -27,6 +38,16 @@ namespace Math
 		return result;
 	}
 
+	/**
+	 * @brief Computes the scalar product of two N-dimensional vectors.
+	 *
+	 * @tparam T The type of elements in the vectors.
+	 * @tparam N The size of the vectors.
+	 * @param vec1 The first vector.
+	 * @param vec2 The second vector.
+	 * @return The scalar product of the two vectors.
+	 * @throw std::runtime_error if the sizes of the vectors are not equal.
+	 */
 	template<typename T, size_t N>
 	auto scalarProduct(const myVectorND<T, N>& vec1, const myVectorND<T, N>& vec2)
 	{
@@ -42,6 +63,16 @@ namespace Math
 		return result;
 	}
 
+	/**
+	 * @brief Computes the cross product of two 3-dimensional vectors.
+	 *
+	 * @tparam T The type of elements in the vectors.
+	 * @tparam N The size of the vectors (must be 3).
+	 * @param vec1 The first vector.
+	 * @param vec2 The second vector.
+	 * @return The cross product of the two vectors.
+	 * @throw static_assert if the size of the vectors is not 3.
+	 */
 	template<typename T, size_t N>
 	auto crossProduct(const myVector<T, N>& vec1, const myVector<T, N>& vec2)
 	{
@@ -55,6 +86,16 @@ namespace Math
 		return result;
 	}
 
+	/**
+	 * @brief Computes the cross product of two 3-dimensional N-dimensional vectors.
+	 *
+	 * @tparam T The type of elements in the vectors.
+	 * @tparam N The size of the vectors (must be 3).
+	 * @param vec1 The first vector.
+	 * @param vec2 The second vector.
+	 * @return The cross product of the two vectors.
+	 * @throw static_assert if the size of the vectors is not 3.
+	 */
 	template<typename T, size_t N>
 	auto crossProduct(const myVectorND<T, N>& vec1, const myVectorND<T, N>& vec2)
 	{
@@ -68,6 +109,14 @@ namespace Math
 		return result;
 	}
 
+	/**
+	 * @brief Computes the norm of an N-dimensional vector.
+	 *
+	 * @tparam type The type of elements in the vector.
+	 * @tparam size The size of the vector.
+	 * @param data The vector.
+	 * @return The norm of the vector.
+	 */
 	template<typename type, size_t size>
 	type Norme(const myVectorND<type, size>& data)
 	{
@@ -79,6 +128,14 @@ namespace Math
 		return std::sqrt(result);
 	};
 
+	/**
+	* @brief Computes the norm of a vector.
+	*
+	* @tparam type The type of elements in the vector.
+	* @tparam size The size of the vector.
+	* @param data The vector.
+	* @return The norm of the vector.
+	*/
 	template<typename type, size_t size>
 	type Norme(const myVector<type, size>& data)
 	{
@@ -90,6 +147,14 @@ namespace Math
 		return std::sqrt(result);
 	};
 
+	/**
+	 * @brief Normalizes an N-dimensional vector.
+	 *
+	 * @tparam type The type of elements in the vector.
+	 * @tparam size The size of the vector.
+	 * @param data The vector to normalize.
+	 * @return The normalized vector.
+	 */
 	template<typename type, size_t size>
 	myVectorND<type, size> VectorNormalization(const myVectorND<type, size>& data)
 	{
@@ -104,6 +169,14 @@ namespace Math
 		return result;
 	};
 
+	/**
+	 * @brief Normalizes a vector.
+	 *
+	 * @tparam type The type of elements in the vector.
+	 * @tparam size The size of the vector.
+	 * @param data The vector to normalize.
+	 * @return The normalized vector.
+	 */
 	template<typename type, size_t size>
 	myVector<type, size> VectorNormalization(const myVector<type, size>& data)
 	{
