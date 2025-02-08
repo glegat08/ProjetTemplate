@@ -1,3 +1,6 @@
+// COULD NOT DELETE THIS FILE
+// AS IT GENERATE A CMAKE ERROR
+
 #pragma once
 #include "mathLib.h"
 #include "myVector.h"

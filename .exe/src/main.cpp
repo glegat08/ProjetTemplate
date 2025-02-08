@@ -399,6 +399,17 @@ int main()
 	glg::sort(testListsort);
 	std::cout << testListsort << std::endl;
 
+	PLEASE::myIntrusiveList<int> intrusiveListSort;
+	intrusiveListSort.push_back(5);
+	intrusiveListSort.push_back(4);
+	intrusiveListSort.push_back(3);
+	intrusiveListSort.push_back(2);
+	intrusiveListSort.push_back(1);
+	std::cout << std::endl;
+	std::cout << "test intrusive list sort : " << intrusiveListSort << std::endl;
+	glg::sort(intrusiveListSort);
+	std::cout << intrusiveListSort << std::endl;
+
 	myVectorND<int, 5> testVectorND;
 	myVectorND<int, 5> testVector2ND{ 1,2,3,4,5 };
 	myVectorND<int, 5> testVector3ND(testVector2ND);
@@ -413,13 +424,19 @@ int main()
 	myVectorND<float, 3> lhs{ 3,4,0 };
 	myVectorND<float, 3> rhs{ 3,4,1 };
 	lhs = Math::crossProduct(lhs, rhs);
-	//lhs = KT::VectorNormalization(lhs);
 	std::cout << std::endl;
-	bool t = lhs != rhs;
-	std::cout << t << std::endl;
 	std::cout << "test cross product :" << std::endl << lhs << std::endl;
+	lhs = Math::VectorNormalization(lhs);
+	std::cout << "test vector normalization :" << std::endl << lhs << std::endl;
+	std::cout << std::endl;
+	bool f = lhs == rhs;
+	std::cout << "(bool vec1 == vec2) Test if 2 vectors are equals (should return false) : " << f << std::endl;
+	bool t = lhs != rhs;
+	std::cout << "(bool vec1 != vec2) Test if 2 vectors are equals (should return true) : " << t << std::endl;
+	std::cout << std::endl;
 	std::cout << "test produit scalaire :" << std::endl << Math::scalarProduct(lhs, rhs) << std::endl;
 
 	myMatrix<int, 3, 3> testmatrix1{ 1,2,3,4,5,6,7,8,9 };
+	std::cout << std::endl;
 	std::cout << "test matrix :" << std::endl << testmatrix1;
 }

@@ -1,7 +1,11 @@
-#include <exception>
+/**
+ * @file myMatrix.h
+ * @brief Implementation of a matrix.
+ * @author Guillaume (and thank you Kroktur for your help)
+ * @date 08/02/2025
+ */
+
 #include <initializer_list>
-#include <sstream>
-#include "mathLib.h"
 #include "myArray.h"
 #include "helper.h"
 
