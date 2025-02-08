@@ -111,6 +111,9 @@ $(function(){initNavTree('classmy_vector_1_1const__iterator.html',''); initResiz
 </div><!--header-->
 <div class="contents">
 
+<p>Const iterator class for <a class="el" href="structmy_vector.html" title="Custom vector implementation with fixed capacity.">myVector</a> Provides read-only random access iterator functionality.  
+ <a href="#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="my_vector_8h_source.html">myVector.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-types" name="pub-types"></a>
@@ -129,10 +132,13 @@ Public Types</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a3c86a507b364bd2245a7f8cbfa601adf" id="r_a3c86a507b364bd2245a7f8cbfa601adf"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3c86a507b364bd2245a7f8cbfa601adf">const_iterator</a> (<a class="el" href="#a1ef9a92cfdbb641093f1b6c8a50589db">pointer</a> ptr)</td></tr>
+<tr class="memdesc:a3c86a507b364bd2245a7f8cbfa601adf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs <a class="el" href="classmy_vector_1_1const__iterator.html" title="Const iterator class for myVector Provides read-only random access iterator functionality.">const_iterator</a> pointing to specific element.  <br /></td></tr>
 <tr class="separator:a3c86a507b364bd2245a7f8cbfa601adf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a52a0aa67247fbd4af3d21157fcd3d702" id="r_a52a0aa67247fbd4af3d21157fcd3d702"><td class="memItemLeft" align="right" valign="top"><a class="el" href="#a19f501a4905d26ab3825cc3bf664a8d2">reference</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a52a0aa67247fbd4af3d21157fcd3d702">operator*</a> () const</td></tr>
+<tr class="memdesc:a52a0aa67247fbd4af3d21157fcd3d702"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dereference operator.  <br /></td></tr>
 <tr class="separator:a52a0aa67247fbd4af3d21157fcd3d702"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6458f8bf218f589b6fe1f088c4922574" id="r_a6458f8bf218f589b6fe1f088c4922574"><td class="memItemLeft" align="right" valign="top"><a class="el" href="#a1ef9a92cfdbb641093f1b6c8a50589db">pointer</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6458f8bf218f589b6fe1f088c4922574">operator-&gt;</a> () const</td></tr>
+<tr class="memdesc:a6458f8bf218f589b6fe1f088c4922574"><td class="mdescLeft">&#160;</td><td class="mdescRight">Arrow operator for member access.  <br /></td></tr>
 <tr class="separator:a6458f8bf218f589b6fe1f088c4922574"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5847b122afa7caf14cce7557344aea74" id="r_a5847b122afa7caf14cce7557344aea74"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classmy_vector_1_1const__iterator.html">const_iterator</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5847b122afa7caf14cce7557344aea74">operator+=</a> (<a class="el" href="#addea205622396fcb5a0be417e22b51c3">difference_type</a> n)</td></tr>
 <tr class="separator:a5847b122afa7caf14cce7557344aea74"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -170,7 +176,10 @@ Friends</h2></td></tr>
 <tr class="memitem:a5bf1a17e44c4023513e6d8e33122c23d" id="r_a5bf1a17e44c4023513e6d8e33122c23d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5bf1a17e44c4023513e6d8e33122c23d">operator&gt;=</a> (const <a class="el" href="classmy_vector_1_1const__iterator.html">const_iterator</a> &amp;lhs, const <a class="el" href="classmy_vector_1_1const__iterator.html">const_iterator</a> &amp;rhs)</td></tr>
 <tr class="separator:a5bf1a17e44c4023513e6d8e33122c23d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Typedef Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><div class="compoundTemplParams">template&lt;typename T, size_t N&gt;<br />
+class myVector&lt; T, N &gt;::const_iterator</div><p>Const iterator class for <a class="el" href="structmy_vector.html" title="Custom vector implementation with fixed capacity.">myVector</a> Provides read-only random access iterator functionality. </p>
+</div><h2 class="groupheader">Member Typedef Documentation</h2>
 <a id="addea205622396fcb5a0be417e22b51c3" name="addea205622396fcb5a0be417e22b51c3"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#addea205622396fcb5a0be417e22b51c3">&#9670;&#160;</a></span>difference_type</h2>
 
@@ -277,6 +286,14 @@ template&lt;typename T, size_t N&gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p>Constructs <a class="el" href="classmy_vector_1_1const__iterator.html" title="Const iterator class for myVector Provides read-only random access iterator functionality.">const_iterator</a> pointing to specific element. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ptr</td><td>Pointer to the element </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
@@ -304,6 +321,9 @@ template&lt;typename T, size_t N&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Dereference operator. </p>
+<dl class="section return"><dt>Returns</dt><dd>Const reference to the pointed element </dd></dl>
 
 </div>
 </div>
@@ -574,6 +594,9 @@ template&lt;typename T, size_t N&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Arrow operator for member access. </p>
+<dl class="section return"><dt>Returns</dt><dd>Const pointer to the element </dd></dl>
 
 </div>
 </div>

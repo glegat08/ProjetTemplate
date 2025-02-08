@@ -122,12 +122,14 @@ $(function(){initNavTree('my_vector_n_d_8h.html',''); initResizable(true); });
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmy_vector_n_d.html">myVectorND&lt; type, size &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Custom vectorND implementation with fixed capacity.  <a href="structmy_vector_n_d.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:a7c099e2739987610122a34dc3422c9c5" id="r_a7c099e2739987610122a34dc3422c9c5"><td class="memTemplParams" colspan="2">template&lt;typename T, size_t N&gt; </td></tr>
 <tr class="memitem:a7c099e2739987610122a34dc3422c9c5"><td class="memTemplItemLeft" align="right" valign="top">std::ostream &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a7c099e2739987610122a34dc3422c9c5">operator&lt;&lt;</a> (std::ostream &amp;os, const <a class="el" href="structmy_vector_n_d.html">myVectorND</a>&lt; T, N &gt; &amp;vec)</td></tr>
+<tr class="memdesc:a7c099e2739987610122a34dc3422c9c5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stream insertion operator for <a class="el" href="structmy_vector_n_d.html" title="Custom vectorND implementation with fixed capacity.">myVectorND</a>.  <br /></td></tr>
 <tr class="separator:a7c099e2739987610122a34dc3422c9c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -155,6 +157,23 @@ template&lt;typename T, size_t N&gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Stream insertion operator for <a class="el" href="structmy_vector_n_d.html" title="Custom vectorND implementation with fixed capacity.">myVectorND</a>. </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T</td><td>Type of elements stored in the vector </td></tr>
+    <tr><td class="paramname">N</td><td>Maximum capacity of the vector </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">os</td><td>The output stream </td></tr>
+    <tr><td class="paramname">vec</td><td>The vector to be inserted into the stream </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>std::ostream&amp; The output stream </dd></dl>
 
 </div>
 </div>

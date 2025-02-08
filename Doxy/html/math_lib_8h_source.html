@@ -179,17 +179,80 @@ $(function(){initNavTree('math_lib_8h_source.html',''); initResizable(true); });
 <div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>    }</div>
 </div>
 <div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span> </div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>};</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> type, <span class="keywordtype">size_t</span> size&gt;</div>
+<div class="foldopen" id="foldopen00072" data-start="{" data-end="}">
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno"><a class="line" href="namespace_math.html#ab8fddd2bf3ffd735862490dc763fdc18">   72</a></span>    type <a class="code hl_function" href="namespace_math.html#ab8fddd2bf3ffd735862490dc763fdc18">Norme</a>(<span class="keyword">const</span> <a class="code hl_struct" href="structmy_vector_n_d.html">myVectorND&lt;type, size&gt;</a>&amp; data)</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>    {</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>        type result = type{};</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>        <span class="keywordflow">for</span> (<span class="keyword">auto</span> it = data.<a class="code hl_function" href="structmy_vector_n_d.html#ab54d77f2d3d1ac6ebc313f2102007a3f">begin</a>(); it != data.<a class="code hl_function" href="structmy_vector_n_d.html#a2f3ae690a6269fcbf96b823b9ad15eb3">end</a>(); ++it)</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>        {</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>            result += (*it * *it);</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>        }</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>        <span class="keywordflow">return</span> std::sqrt(result);</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>    };</div>
+</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span> </div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> type, <span class="keywordtype">size_t</span> size&gt;</div>
+<div class="foldopen" id="foldopen00083" data-start="{" data-end="}">
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno"><a class="line" href="namespace_math.html#aefc2e3ac402db67c52b93eccd6ceb4ff">   83</a></span>    type <a class="code hl_function" href="namespace_math.html#ab8fddd2bf3ffd735862490dc763fdc18">Norme</a>(<span class="keyword">const</span> <a class="code hl_struct" href="structmy_vector.html">myVector&lt;type, size&gt;</a>&amp; data)</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>    {</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>        type result = type{};</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>        <span class="keywordflow">for</span> (<span class="keyword">auto</span> it = data.<a class="code hl_function" href="structmy_vector.html#acc4994d20398fc054e1c921fd7d6e594">begin</a>(); it != data.<a class="code hl_function" href="structmy_vector.html#a53b0e4dc6482bf2d995d488b62df42fe">end</a>(); ++it)</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>        {</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>            result += (*it * *it);</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>        }</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>        <span class="keywordflow">return</span> std::sqrt(result);</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>    };</div>
+</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span> </div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> type, <span class="keywordtype">size_t</span> size&gt;</div>
+<div class="foldopen" id="foldopen00094" data-start="{" data-end="}">
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno"><a class="line" href="namespace_math.html#a4882d496e72791dbad9421c236234f41">   94</a></span>    <a class="code hl_struct" href="structmy_vector_n_d.html">myVectorND&lt;type, size&gt;</a> <a class="code hl_function" href="namespace_math.html#a4882d496e72791dbad9421c236234f41">VectorNormalization</a>(<span class="keyword">const</span> <a class="code hl_struct" href="structmy_vector_n_d.html">myVectorND&lt;type, size&gt;</a>&amp; data)</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>    {</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>        <a class="code hl_struct" href="structmy_vector_n_d.html">myVectorND&lt;type, size&gt;</a> result;</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>        type norme = <a class="code hl_function" href="namespace_math.html#ab8fddd2bf3ffd735862490dc763fdc18">Norme&lt;type, size&gt;</a>(data);</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>        <span class="keyword">auto</span> itresult = result.<a class="code hl_function" href="structmy_vector_n_d.html#ab54d77f2d3d1ac6ebc313f2102007a3f">begin</a>();</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>        <span class="keywordflow">for</span> (<span class="keyword">auto</span> it = data.<a class="code hl_function" href="structmy_vector_n_d.html#ab54d77f2d3d1ac6ebc313f2102007a3f">begin</a>(); it != data.<a class="code hl_function" href="structmy_vector_n_d.html#a2f3ae690a6269fcbf96b823b9ad15eb3">end</a>(); ++it)</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>        {</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>            *itresult = (*it / norme);</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>            ++itresult;</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>        }</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>        <span class="keywordflow">return</span> result;</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>    };</div>
+</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span> </div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> type, <span class="keywordtype">size_t</span> size&gt;</div>
+<div class="foldopen" id="foldopen00108" data-start="{" data-end="}">
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno"><a class="line" href="namespace_math.html#a152d77bb84728401826ed079d18e3943">  108</a></span>    <a class="code hl_struct" href="structmy_vector.html">myVector&lt;type, size&gt;</a> <a class="code hl_function" href="namespace_math.html#a4882d496e72791dbad9421c236234f41">VectorNormalization</a>(<span class="keyword">const</span> <a class="code hl_struct" href="structmy_vector.html">myVector&lt;type, size&gt;</a>&amp; data)</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>    {</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>        <a class="code hl_struct" href="structmy_vector.html">myVector&lt;type, size&gt;</a> result;</div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>        type norme = <a class="code hl_function" href="namespace_math.html#ab8fddd2bf3ffd735862490dc763fdc18">Norme&lt;type, size&gt;</a>(data);</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>        <span class="keyword">auto</span> itresult = result.<a class="code hl_function" href="structmy_vector.html#acc4994d20398fc054e1c921fd7d6e594">begin</a>();</div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>        <span class="keywordflow">for</span> (<span class="keyword">auto</span> it = data.<a class="code hl_function" href="structmy_vector.html#acc4994d20398fc054e1c921fd7d6e594">begin</a>(); it != data.<a class="code hl_function" href="structmy_vector.html#a53b0e4dc6482bf2d995d488b62df42fe">end</a>(); ++it)</div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>        {</div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>            *itresult = (*it / norme);</div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>            ++itresult;</div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>        }</div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>        <span class="keywordflow">return</span> result;</div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>    };</div>
+</div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>};</div>
 </div>
 <div class="ttc" id="amy_vector_8h_html"><div class="ttname"><a href="my_vector_8h.html">myVector.h</a></div><div class="ttdoc">Implementation of a vector with iterators and utility functions.</div></div>
 <div class="ttc" id="amy_vector_n_d_8h_html"><div class="ttname"><a href="my_vector_n_d_8h.html">myVectorND.h</a></div><div class="ttdoc">Implementation of a vector of N-Dimensions.</div></div>
 <div class="ttc" id="anamespace_math_html"><div class="ttname"><a href="namespace_math.html">Math</a></div><div class="ttdef"><b>Definition</b> mathLib.h:14</div></div>
+<div class="ttc" id="anamespace_math_html_a4882d496e72791dbad9421c236234f41"><div class="ttname"><a href="namespace_math.html#a4882d496e72791dbad9421c236234f41">Math::VectorNormalization</a></div><div class="ttdeci">myVectorND&lt; type, size &gt; VectorNormalization(const myVectorND&lt; type, size &gt; &amp;data)</div><div class="ttdef"><b>Definition</b> mathLib.h:94</div></div>
 <div class="ttc" id="anamespace_math_html_a7080b358ee060826e1712961c3a207d5"><div class="ttname"><a href="namespace_math.html#a7080b358ee060826e1712961c3a207d5">Math::scalarProduct</a></div><div class="ttdeci">auto scalarProduct(const myVector&lt; T, N &gt; &amp;vec1, const myVector&lt; T, N &gt; &amp;vec2)</div><div class="ttdef"><b>Definition</b> mathLib.h:16</div></div>
+<div class="ttc" id="anamespace_math_html_ab8fddd2bf3ffd735862490dc763fdc18"><div class="ttname"><a href="namespace_math.html#ab8fddd2bf3ffd735862490dc763fdc18">Math::Norme</a></div><div class="ttdeci">type Norme(const myVectorND&lt; type, size &gt; &amp;data)</div><div class="ttdef"><b>Definition</b> mathLib.h:72</div></div>
 <div class="ttc" id="anamespace_math_html_ae6416c54bfa40aee6873c4768920363b"><div class="ttname"><a href="namespace_math.html#ae6416c54bfa40aee6873c4768920363b">Math::crossProduct</a></div><div class="ttdeci">auto crossProduct(const myVector&lt; T, N &gt; &amp;vec1, const myVector&lt; T, N &gt; &amp;vec2)</div><div class="ttdef"><b>Definition</b> mathLib.h:46</div></div>
-<div class="ttc" id="astructmy_vector_html"><div class="ttname"><a href="structmy_vector.html">myVector</a></div><div class="ttdef"><b>Definition</b> myVector.h:15</div></div>
-<div class="ttc" id="astructmy_vector_html_a7549ddc5ab5467dfac5da9ab5c24fb8e"><div class="ttname"><a href="structmy_vector.html#a7549ddc5ab5467dfac5da9ab5c24fb8e">myVector::size</a></div><div class="ttdeci">size_type size() const</div><div class="ttdoc">Capacity methods.</div><div class="ttdef"><b>Definition</b> myVector.h:334</div></div>
-<div class="ttc" id="astructmy_vector_n_d_html"><div class="ttname"><a href="structmy_vector_n_d.html">myVectorND</a></div><div class="ttdef"><b>Definition</b> myVectorND.h:17</div></div>
-<div class="ttc" id="astructmy_vector_n_d_html_a6b34bdc00da5de2adbbb3a0fb50512cb"><div class="ttname"><a href="structmy_vector_n_d.html#a6b34bdc00da5de2adbbb3a0fb50512cb">myVectorND::Size</a></div><div class="ttdeci">size_t Size()</div><div class="ttdef"><b>Definition</b> myVectorND.h:80</div></div>
+<div class="ttc" id="astructmy_vector_html"><div class="ttname"><a href="structmy_vector.html">myVector</a></div><div class="ttdoc">Custom vector implementation with fixed capacity.</div><div class="ttdef"><b>Definition</b> myVector.h:20</div></div>
+<div class="ttc" id="astructmy_vector_html_a53b0e4dc6482bf2d995d488b62df42fe"><div class="ttname"><a href="structmy_vector.html#a53b0e4dc6482bf2d995d488b62df42fe">myVector::end</a></div><div class="ttdeci">iterator end()</div><div class="ttdoc">Returns iterator to end.</div><div class="ttdef"><b>Definition</b> myVector.h:498</div></div>
+<div class="ttc" id="astructmy_vector_html_a7549ddc5ab5467dfac5da9ab5c24fb8e"><div class="ttname"><a href="structmy_vector.html#a7549ddc5ab5467dfac5da9ab5c24fb8e">myVector::size</a></div><div class="ttdeci">size_type size() const</div><div class="ttdoc">Returns the current size of the vector.</div><div class="ttdef"><b>Definition</b> myVector.h:425</div></div>
+<div class="ttc" id="astructmy_vector_html_acc4994d20398fc054e1c921fd7d6e594"><div class="ttname"><a href="structmy_vector.html#acc4994d20398fc054e1c921fd7d6e594">myVector::begin</a></div><div class="ttdeci">iterator begin()</div><div class="ttdoc">Returns iterator to beginning.</div><div class="ttdef"><b>Definition</b> myVector.h:480</div></div>
+<div class="ttc" id="astructmy_vector_n_d_html"><div class="ttname"><a href="structmy_vector_n_d.html">myVectorND</a></div><div class="ttdoc">Custom vectorND implementation with fixed capacity.</div><div class="ttdef"><b>Definition</b> myVectorND.h:22</div></div>
+<div class="ttc" id="astructmy_vector_n_d_html_a2f3ae690a6269fcbf96b823b9ad15eb3"><div class="ttname"><a href="structmy_vector_n_d.html#a2f3ae690a6269fcbf96b823b9ad15eb3">myVectorND::end</a></div><div class="ttdeci">iterator end()</div><div class="ttdoc">Get an iterator to the end of the vector.</div><div class="ttdef"><b>Definition</b> myVectorND.h:206</div></div>
+<div class="ttc" id="astructmy_vector_n_d_html_a6b34bdc00da5de2adbbb3a0fb50512cb"><div class="ttname"><a href="structmy_vector_n_d.html#a6b34bdc00da5de2adbbb3a0fb50512cb">myVectorND::Size</a></div><div class="ttdeci">size_t Size()</div><div class="ttdoc">Get the number of elements in the vector.</div><div class="ttdef"><b>Definition</b> myVectorND.h:138</div></div>
+<div class="ttc" id="astructmy_vector_n_d_html_ab54d77f2d3d1ac6ebc313f2102007a3f"><div class="ttname"><a href="structmy_vector_n_d.html#ab54d77f2d3d1ac6ebc313f2102007a3f">myVectorND::begin</a></div><div class="ttdeci">iterator begin()</div><div class="ttdoc">Get an iterator to the beginning of the vector.</div><div class="ttdef"><b>Definition</b> myVectorND.h:193</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

@@ -28,10 +28,14 @@ var NAVTREEINDEX1 =
 "my_vector_n_d_8h.html#a7c099e2739987610122a34dc3422c9c5":[2,0,1,0,8,1],
 "my_vector_n_d_8h_source.html":[2,0,1,0,8],
 "namespace_math.html":[0,0,1],
-"namespace_math.html#a7080b358ee060826e1712961c3a207d5":[0,0,1,2],
+"namespace_math.html#a152d77bb84728401826ed079d18e3943":[0,0,1,6],
+"namespace_math.html#a4882d496e72791dbad9421c236234f41":[0,0,1,7],
+"namespace_math.html#a7080b358ee060826e1712961c3a207d5":[0,0,1,4],
 "namespace_math.html#aa2c6974da4f17ca8ae1488dfc74c6ae7":[0,0,1,1],
+"namespace_math.html#ab8fddd2bf3ffd735862490dc763fdc18":[0,0,1,3],
 "namespace_math.html#ae6416c54bfa40aee6873c4768920363b":[0,0,1,0],
-"namespace_math.html#af71aab8dfd600d931bd1cef90d6df19b":[0,0,1,3],
+"namespace_math.html#aefc2e3ac402db67c52b93eccd6ceb4ff":[0,0,1,2],
+"namespace_math.html#af71aab8dfd600d931bd1cef90d6df19b":[0,0,1,5],
 "namespace_p_l_e_a_s_e.html":[0,0,2],
 "namespace_p_l_e_a_s_e.html#a0c739b75ce2fe46ea7c2cd95a143dae6":[0,0,2,3],
 "namespace_p_l_e_a_s_e.html#a5899f20f6658235c26acb938663ede3e":[0,0,2,2],
@@ -245,9 +249,5 @@ var NAVTREEINDEX1 =
 "structmy_array.html#ac7cde334d1a4f2264702c9ec1f7ff449":[1,0,2,40],
 "structmy_array.html#accebb2c3c5763e908ff549f389f79c20":[1,0,2,32],
 "structmy_array.html#ad01967d2e53144aea3177b1f22e99984":[1,0,2,34],
-"structmy_array.html#ad47c5e57b25798283aeeaf8e87a31148":[1,0,2,27],
-"structmy_array.html#ad8f4f27aa2ab79b56b18c12ea95e419d":[1,0,2,14],
-"structmy_array.html#ad9bc8b21ff7f3d14b7ead8871f6ae60a":[1,0,2,30],
-"structmy_array.html#adc9cb3138b4bbfa361eb554ad016ead2":[1,0,2,6],
-"structmy_array.html#aef2986b00d0137430e2ec108421585a7":[1,0,2,26]
+"structmy_array.html#ad47c5e57b25798283aeeaf8e87a31148":[1,0,2,27]
 };

@@ -170,7 +170,7 @@ $(function(){initNavTree('helper_8h_source.html',''); initResizable(true); });
 <div class="foldopen" id="foldopen00057" data-start="{" data-end="}">
 <div class="line"><a id="l00057" name="l00057"></a><span class="lineno"><a class="line" href="namespaceglg.html#aa98aca0d0d65d901a2414fab9704dabf">   57</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="namespaceglg.html#aa98aca0d0d65d901a2414fab9704dabf">swap</a>(Container&amp; first, Container&amp; second)</div>
 <div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    {</div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>        Container temp = first;</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>        <span class="keyword">auto</span> temp = first;</div>
 <div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>        first = second;</div>
 <div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>        second = temp;</div>
 <div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    }</div>
@@ -182,7 +182,7 @@ $(function(){initNavTree('helper_8h_source.html',''); initResizable(true); });
 <div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>    {</div>
 <div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>        <span class="keywordflow">if</span> (first == last) <span class="keywordflow">return</span>;</div>
 <div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span> </div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>        <span class="keywordflow">for</span> (<span class="keyword">auto</span> it = first; ++it != last; )</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>        <span class="keywordflow">for</span> (<span class="keyword">auto</span> it = first; it != last; ++it)</div>
 <div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>        {</div>
 <div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>            <span class="keyword">auto</span> key = *it;</div>
 <div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>            <span class="keyword">auto</span> j = it;</div>
@@ -220,7 +220,7 @@ $(function(){initNavTree('helper_8h_source.html',''); initResizable(true); });
 <div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>            {</div>
 <div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>                <span class="keywordflow">if</span> (*current &gt; *next)</div>
 <div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>                {</div>
-<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>                    std::swap(*current, *next);</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>                    <a class="code hl_function" href="namespaceglg.html#aa98aca0d0d65d901a2414fab9704dabf">glg::swap</a>(*current, *next);</div>
 <div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>                    swapped = <span class="keyword">true</span>;</div>
 <div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>                }</div>
 <div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>                ++current;</div>

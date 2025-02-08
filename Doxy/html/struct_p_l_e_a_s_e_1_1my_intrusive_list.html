@@ -110,6 +110,9 @@ $(function(){initNavTree('struct_p_l_e_a_s_e_1_1my_intrusive_list.html',''); ini
 </div><!--header-->
 <div class="contents">
 
+<p>Intrusive doubly-linked list implementation.  
+ <a href="#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="my_intrusive_list_8h_source.html">myIntrusiveList.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-types" name="pub-types"></a>
@@ -136,89 +139,139 @@ Public Types</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a3aaaff0ae816e8406cd5ee80e5cd84be" id="r_a3aaaff0ae816e8406cd5ee80e5cd84be"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3aaaff0ae816e8406cd5ee80e5cd84be">~myIntrusiveList</a> ()</td></tr>
+<tr class="memdesc:a3aaaff0ae816e8406cd5ee80e5cd84be"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor, cleans up all nodes.  <br /></td></tr>
 <tr class="separator:a3aaaff0ae816e8406cd5ee80e5cd84be"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae43df7516e7b48bf356ee03aeab8f9e1" id="r_ae43df7516e7b48bf356ee03aeab8f9e1"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae43df7516e7b48bf356ee03aeab8f9e1">myIntrusiveList</a> ()</td></tr>
+<tr class="memdesc:ae43df7516e7b48bf356ee03aeab8f9e1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default constructor.  <br /></td></tr>
 <tr class="separator:ae43df7516e7b48bf356ee03aeab8f9e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8b92a1461edf679d2bba24e8822ce890" id="r_a8b92a1461edf679d2bba24e8822ce890"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8b92a1461edf679d2bba24e8822ce890">myIntrusiveList</a> (const <a class="el" href="struct_p_l_e_a_s_e_1_1my_intrusive_list.html">myIntrusiveList</a> &amp;tab)</td></tr>
+<tr class="memdesc:a8b92a1461edf679d2bba24e8822ce890"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy constructor.  <br /></td></tr>
 <tr class="separator:a8b92a1461edf679d2bba24e8822ce890"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3930808dba8c399466f78bfbddeb16ef" id="r_a3930808dba8c399466f78bfbddeb16ef"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3930808dba8c399466f78bfbddeb16ef">myIntrusiveList</a> (const std::initializer_list&lt; <a class="el" href="struct_p_l_e_a_s_e_1_1_node.html">PLEASE::Node</a>&lt; type &gt; &gt; &amp;list)</td></tr>
+<tr class="memdesc:a3930808dba8c399466f78bfbddeb16ef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializer list constructor.  <br /></td></tr>
 <tr class="separator:a3930808dba8c399466f78bfbddeb16ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a974e2d96bd9024c90581eaf62c7efe86" id="r_a974e2d96bd9024c90581eaf62c7efe86"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a974e2d96bd9024c90581eaf62c7efe86">resize</a> (const size_t &amp;idx)</td></tr>
+<tr class="memdesc:a974e2d96bd9024c90581eaf62c7efe86"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resizes the list.  <br /></td></tr>
 <tr class="separator:a974e2d96bd9024c90581eaf62c7efe86"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a177a3548af27285295b0375106212aad" id="r_a177a3548af27285295b0375106212aad"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a177a3548af27285295b0375106212aad">swap</a> (<a class="el" href="struct_p_l_e_a_s_e_1_1my_intrusive_list.html">myIntrusiveList</a>&lt; type &gt; &amp;Newlist)</td></tr>
+<tr class="memdesc:a177a3548af27285295b0375106212aad"><td class="mdescLeft">&#160;</td><td class="mdescRight">Swaps the contents of two lists.  <br /></td></tr>
 <tr class="separator:a177a3548af27285295b0375106212aad"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0a2fcd50db5ef64261e91aae637ca152" id="r_a0a2fcd50db5ef64261e91aae637ca152"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0a2fcd50db5ef64261e91aae637ca152">push_back</a> (const <a class="el" href="#a1ea1fe4495794ad95159c86b1c9a0865">value_type</a> &amp;val)</td></tr>
+<tr class="memdesc:a0a2fcd50db5ef64261e91aae637ca152"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds an element to the end of the list.  <br /></td></tr>
 <tr class="separator:a0a2fcd50db5ef64261e91aae637ca152"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a06ed46b5678eac78ac03e6bda8c2bdbd" id="r_a06ed46b5678eac78ac03e6bda8c2bdbd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a06ed46b5678eac78ac03e6bda8c2bdbd">pop_back</a> ()</td></tr>
+<tr class="memdesc:a06ed46b5678eac78ac03e6bda8c2bdbd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes the last element.  <br /></td></tr>
 <tr class="separator:a06ed46b5678eac78ac03e6bda8c2bdbd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7bf6fcdcff86186c578e1546beadf306" id="r_a7bf6fcdcff86186c578e1546beadf306"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7bf6fcdcff86186c578e1546beadf306">pushFront</a> (const <a class="el" href="#a1ea1fe4495794ad95159c86b1c9a0865">value_type</a> &amp;val)</td></tr>
+<tr class="memdesc:a7bf6fcdcff86186c578e1546beadf306"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds an element to the front of the list.  <br /></td></tr>
 <tr class="separator:a7bf6fcdcff86186c578e1546beadf306"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3647b6729a9cd07f63f84efd6cf998bc" id="r_a3647b6729a9cd07f63f84efd6cf998bc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3647b6729a9cd07f63f84efd6cf998bc">popFront</a> ()</td></tr>
+<tr class="memdesc:a3647b6729a9cd07f63f84efd6cf998bc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes the first element.  <br /></td></tr>
 <tr class="separator:a3647b6729a9cd07f63f84efd6cf998bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5e9d87dcf7d796bd3aaf88d507f2cb77" id="r_a5e9d87dcf7d796bd3aaf88d507f2cb77"><td class="memItemLeft" align="right" valign="top"><a class="el" href="#ac9071c0091afa276c2f4745209c74bde">reference</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5e9d87dcf7d796bd3aaf88d507f2cb77">operator[]</a> (const size_t &amp;idx)</td></tr>
+<tr class="memdesc:a5e9d87dcf7d796bd3aaf88d507f2cb77"><td class="mdescLeft">&#160;</td><td class="mdescRight">Access operator.  <br /></td></tr>
 <tr class="separator:a5e9d87dcf7d796bd3aaf88d507f2cb77"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a278429116af01ea71f97ace261a8005e" id="r_a278429116af01ea71f97ace261a8005e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="#ae2bf70ec15053c93007292a265d0d6bd">const_reference</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a278429116af01ea71f97ace261a8005e">operator[]</a> (const size_t &amp;idx) const</td></tr>
+<tr class="memdesc:a278429116af01ea71f97ace261a8005e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Const access operator.  <br /></td></tr>
 <tr class="separator:a278429116af01ea71f97ace261a8005e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae0ca0c73bfaac96b82a444755a6940b0" id="r_ae0ca0c73bfaac96b82a444755a6940b0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="#ac9071c0091afa276c2f4745209c74bde">reference</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae0ca0c73bfaac96b82a444755a6940b0">at</a> (const size_t &amp;idx)</td></tr>
+<tr class="memdesc:ae0ca0c73bfaac96b82a444755a6940b0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Safe element access with bounds checking.  <br /></td></tr>
 <tr class="separator:ae0ca0c73bfaac96b82a444755a6940b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aabb3b59f53dcdcfef30d8df59ac22b23" id="r_aabb3b59f53dcdcfef30d8df59ac22b23"><td class="memItemLeft" align="right" valign="top"><a class="el" href="#ae2bf70ec15053c93007292a265d0d6bd">const_reference</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aabb3b59f53dcdcfef30d8df59ac22b23">at</a> (const size_t &amp;idx) const</td></tr>
+<tr class="memdesc:aabb3b59f53dcdcfef30d8df59ac22b23"><td class="mdescLeft">&#160;</td><td class="mdescRight">Safe const element access with bounds checking.  <br /></td></tr>
 <tr class="separator:aabb3b59f53dcdcfef30d8df59ac22b23"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0b2785af2c664d0547acc2f6e05a7110" id="r_a0b2785af2c664d0547acc2f6e05a7110"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0b2785af2c664d0547acc2f6e05a7110">Empty</a> ()</td></tr>
+<tr class="memdesc:a0b2785af2c664d0547acc2f6e05a7110"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if the list is empty.  <br /></td></tr>
 <tr class="separator:a0b2785af2c664d0547acc2f6e05a7110"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a20ba650fcd9089e299581e3a20b739a9" id="r_a20ba650fcd9089e299581e3a20b739a9"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a20ba650fcd9089e299581e3a20b739a9">Empty</a> () const</td></tr>
+<tr class="memdesc:a20ba650fcd9089e299581e3a20b739a9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Const version of empty check.  <br /></td></tr>
 <tr class="separator:a20ba650fcd9089e299581e3a20b739a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9dee54f1af53e1c31d64f3cbb37f2088" id="r_a9dee54f1af53e1c31d64f3cbb37f2088"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9dee54f1af53e1c31d64f3cbb37f2088">size</a> ()</td></tr>
+<tr class="memdesc:a9dee54f1af53e1c31d64f3cbb37f2088"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the current size of the list.  <br /></td></tr>
 <tr class="separator:a9dee54f1af53e1c31d64f3cbb37f2088"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3fc9f586c9d94a09c44558a48d8cac07" id="r_a3fc9f586c9d94a09c44558a48d8cac07"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3fc9f586c9d94a09c44558a48d8cac07">size</a> () const</td></tr>
+<tr class="memdesc:a3fc9f586c9d94a09c44558a48d8cac07"><td class="mdescLeft">&#160;</td><td class="mdescRight">Const version of size getter.  <br /></td></tr>
 <tr class="separator:a3fc9f586c9d94a09c44558a48d8cac07"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2b6df5cc6341f14f43a2aff4aafd0c31" id="r_a2b6df5cc6341f14f43a2aff4aafd0c31"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2b6df5cc6341f14f43a2aff4aafd0c31">erase</a> (const iterator &amp;it)</td></tr>
+<tr class="memdesc:a2b6df5cc6341f14f43a2aff4aafd0c31"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes element at iterator position.  <br /></td></tr>
 <tr class="separator:a2b6df5cc6341f14f43a2aff4aafd0c31"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3cf733b791d0aeca80555fdc0be97c88" id="r_a3cf733b791d0aeca80555fdc0be97c88"><td class="memItemLeft" align="right" valign="top">iterator&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3cf733b791d0aeca80555fdc0be97c88">begin</a> ()</td></tr>
+<tr class="memdesc:a3cf733b791d0aeca80555fdc0be97c88"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets iterator to first element.  <br /></td></tr>
 <tr class="separator:a3cf733b791d0aeca80555fdc0be97c88"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a65020477061e3f1852ac8d372431de57" id="r_a65020477061e3f1852ac8d372431de57"><td class="memItemLeft" align="right" valign="top">const_iterator&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a65020477061e3f1852ac8d372431de57">begin</a> () const</td></tr>
+<tr class="memdesc:a65020477061e3f1852ac8d372431de57"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets const iterator to first element.  <br /></td></tr>
 <tr class="separator:a65020477061e3f1852ac8d372431de57"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a41eb662f6c4ac266184dc8b355f555fe" id="r_a41eb662f6c4ac266184dc8b355f555fe"><td class="memItemLeft" align="right" valign="top">iterator&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a41eb662f6c4ac266184dc8b355f555fe">end</a> ()</td></tr>
+<tr class="memdesc:a41eb662f6c4ac266184dc8b355f555fe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets iterator to end.  <br /></td></tr>
 <tr class="separator:a41eb662f6c4ac266184dc8b355f555fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac9fa7ad6038f4a8cfd571eac741ecd8d" id="r_ac9fa7ad6038f4a8cfd571eac741ecd8d"><td class="memItemLeft" align="right" valign="top">const_iterator&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac9fa7ad6038f4a8cfd571eac741ecd8d">end</a> () const</td></tr>
+<tr class="memdesc:ac9fa7ad6038f4a8cfd571eac741ecd8d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets const iterator to end.  <br /></td></tr>
 <tr class="separator:ac9fa7ad6038f4a8cfd571eac741ecd8d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8170909255f910cc10b57dbb78bb4333" id="r_a8170909255f910cc10b57dbb78bb4333"><td class="memItemLeft" align="right" valign="top"><a class="el" href="#ac9071c0091afa276c2f4745209c74bde">reference</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8170909255f910cc10b57dbb78bb4333">front</a> ()</td></tr>
+<tr class="memdesc:a8170909255f910cc10b57dbb78bb4333"><td class="mdescLeft">&#160;</td><td class="mdescRight">Access first element.  <br /></td></tr>
 <tr class="separator:a8170909255f910cc10b57dbb78bb4333"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7d3e58c397f2f41f8c8a055630ab57e9" id="r_a7d3e58c397f2f41f8c8a055630ab57e9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="#ae2bf70ec15053c93007292a265d0d6bd">const_reference</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7d3e58c397f2f41f8c8a055630ab57e9">front</a> () const</td></tr>
+<tr class="memdesc:a7d3e58c397f2f41f8c8a055630ab57e9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Const access to first element.  <br /></td></tr>
 <tr class="separator:a7d3e58c397f2f41f8c8a055630ab57e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3094359ba58b881750bce8dafc8b1cab" id="r_a3094359ba58b881750bce8dafc8b1cab"><td class="memItemLeft" align="right" valign="top"><a class="el" href="#ac9071c0091afa276c2f4745209c74bde">reference</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3094359ba58b881750bce8dafc8b1cab">back</a> ()</td></tr>
+<tr class="memdesc:a3094359ba58b881750bce8dafc8b1cab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Access last element.  <br /></td></tr>
 <tr class="separator:a3094359ba58b881750bce8dafc8b1cab"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a24186a4d6596b468fec9303e2006b680" id="r_a24186a4d6596b468fec9303e2006b680"><td class="memItemLeft" align="right" valign="top"><a class="el" href="#ae2bf70ec15053c93007292a265d0d6bd">const_reference</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a24186a4d6596b468fec9303e2006b680">back</a> () const</td></tr>
+<tr class="memdesc:a24186a4d6596b468fec9303e2006b680"><td class="mdescLeft">&#160;</td><td class="mdescRight">Const access to last element.  <br /></td></tr>
 <tr class="separator:a24186a4d6596b468fec9303e2006b680"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab1c4d2f6a51518ca03d9c293bdf02f8a" id="r_ab1c4d2f6a51518ca03d9c293bdf02f8a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab1c4d2f6a51518ca03d9c293bdf02f8a">clear</a> ()</td></tr>
+<tr class="memdesc:ab1c4d2f6a51518ca03d9c293bdf02f8a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes all elements from the list.  <br /></td></tr>
 <tr class="separator:ab1c4d2f6a51518ca03d9c293bdf02f8a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5021eb280ba52522abd7d37f95167cab" id="r_a5021eb280ba52522abd7d37f95167cab"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_p_l_e_a_s_e_1_1my_intrusive_list.html">myIntrusiveList</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5021eb280ba52522abd7d37f95167cab">operator=</a> (const <a class="el" href="struct_p_l_e_a_s_e_1_1my_intrusive_list.html">myIntrusiveList</a> &amp;tab)</td></tr>
+<tr class="memdesc:a5021eb280ba52522abd7d37f95167cab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Assignment operator.  <br /></td></tr>
 <tr class="separator:a5021eb280ba52522abd7d37f95167cab"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3a1198d3e1880034a0d1a572dad7be55" id="r_a3a1198d3e1880034a0d1a572dad7be55"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3a1198d3e1880034a0d1a572dad7be55">assign</a> (const iterator &amp;<a class="el" href="#a3cf733b791d0aeca80555fdc0be97c88">begin</a>, const iterator &amp;<a class="el" href="#a41eb662f6c4ac266184dc8b355f555fe">end</a>)</td></tr>
+<tr class="memdesc:a3a1198d3e1880034a0d1a572dad7be55"><td class="mdescLeft">&#160;</td><td class="mdescRight">Assigns new contents to the list using iterator range.  <br /></td></tr>
 <tr class="separator:a3a1198d3e1880034a0d1a572dad7be55"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a80e5d02d3a5f318da8ef88358f81c756" id="r_a80e5d02d3a5f318da8ef88358f81c756"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a80e5d02d3a5f318da8ef88358f81c756">assign</a> (const size_t &amp;sizeofvec, const <a class="el" href="#a1ea1fe4495794ad95159c86b1c9a0865">value_type</a> &amp;data)</td></tr>
+<tr class="memdesc:a80e5d02d3a5f318da8ef88358f81c756"><td class="mdescLeft">&#160;</td><td class="mdescRight">Assigns new contents to the list with a given value repeated n times.  <br /></td></tr>
 <tr class="separator:a80e5d02d3a5f318da8ef88358f81c756"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a382c978bb43540e2bfd657e0953820e3" id="r_a382c978bb43540e2bfd657e0953820e3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a382c978bb43540e2bfd657e0953820e3">assign</a> (const std::initializer_list&lt; <a class="el" href="struct_p_l_e_a_s_e_1_1_node.html">PLEASE::Node</a>&lt; type &gt; &gt; &amp;list)</td></tr>
+<tr class="memdesc:a382c978bb43540e2bfd657e0953820e3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Assigns new contents from an initializer list.  <br /></td></tr>
 <tr class="separator:a382c978bb43540e2bfd657e0953820e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a707494918b71b6e5876745343378b8d7" id="r_a707494918b71b6e5876745343378b8d7"><td class="memItemLeft" align="right" valign="top">reverse_iterator&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a707494918b71b6e5876745343378b8d7">rbegin</a> ()</td></tr>
+<tr class="memdesc:a707494918b71b6e5876745343378b8d7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets reverse iterator to last element.  <br /></td></tr>
 <tr class="separator:a707494918b71b6e5876745343378b8d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aef250dfb7b5cef0a9511ad14fe1b7eed" id="r_aef250dfb7b5cef0a9511ad14fe1b7eed"><td class="memItemLeft" align="right" valign="top">const_reverse_iterator&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aef250dfb7b5cef0a9511ad14fe1b7eed">rbegin</a> () const</td></tr>
+<tr class="memdesc:aef250dfb7b5cef0a9511ad14fe1b7eed"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets const reverse iterator to last element.  <br /></td></tr>
 <tr class="separator:aef250dfb7b5cef0a9511ad14fe1b7eed"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7baeec43c27d00f81ca2000114fc32c7" id="r_a7baeec43c27d00f81ca2000114fc32c7"><td class="memItemLeft" align="right" valign="top">reverse_iterator&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7baeec43c27d00f81ca2000114fc32c7">rend</a> ()</td></tr>
+<tr class="memdesc:a7baeec43c27d00f81ca2000114fc32c7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets reverse iterator to theoretical element before first.  <br /></td></tr>
 <tr class="separator:a7baeec43c27d00f81ca2000114fc32c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afa44954eab14cbe373585427630533de" id="r_afa44954eab14cbe373585427630533de"><td class="memItemLeft" align="right" valign="top">const_reverse_iterator&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afa44954eab14cbe373585427630533de">rend</a> () const</td></tr>
+<tr class="memdesc:afa44954eab14cbe373585427630533de"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets const reverse iterator to theoretical element before first.  <br /></td></tr>
 <tr class="separator:afa44954eab14cbe373585427630533de"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a252d16e33fe190c93796c91bdb3118ce" id="r_a252d16e33fe190c93796c91bdb3118ce"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a252d16e33fe190c93796c91bdb3118ce">max_size</a> ()</td></tr>
+<tr class="memdesc:a252d16e33fe190c93796c91bdb3118ce"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the maximum possible size of the list.  <br /></td></tr>
 <tr class="separator:a252d16e33fe190c93796c91bdb3118ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a46d0997067df73cbc0f1063633ebf79d" id="r_a46d0997067df73cbc0f1063633ebf79d"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a46d0997067df73cbc0f1063633ebf79d">max_size</a> () const</td></tr>
+<tr class="memdesc:a46d0997067df73cbc0f1063633ebf79d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Const version of max_size.  <br /></td></tr>
 <tr class="separator:a46d0997067df73cbc0f1063633ebf79d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a98a4ccef3186f9dcc3ac27503ef8a2a0" id="r_a98a4ccef3186f9dcc3ac27503ef8a2a0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a98a4ccef3186f9dcc3ac27503ef8a2a0">insert</a> (const iterator &amp;newit, const <a class="el" href="#a1ea1fe4495794ad95159c86b1c9a0865">value_type</a> &amp;value)</td></tr>
+<tr class="memdesc:a98a4ccef3186f9dcc3ac27503ef8a2a0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inserts an element at iterator position.  <br /></td></tr>
 <tr class="separator:a98a4ccef3186f9dcc3ac27503ef8a2a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2483669e3ead79252ed5c394df28053d" id="r_a2483669e3ead79252ed5c394df28053d"><td class="memItemLeft" align="right" valign="top">iterator&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2483669e3ead79252ed5c394df28053d">find</a> (const iterator &amp;ptr)</td></tr>
+<tr class="memdesc:a2483669e3ead79252ed5c394df28053d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Finds an element in the list.  <br /></td></tr>
 <tr class="separator:a2483669e3ead79252ed5c394df28053d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aac3736ab7eb98e2867acc2c577880856" id="r_aac3736ab7eb98e2867acc2c577880856"><td class="memItemLeft" align="right" valign="top">const_iterator&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aac3736ab7eb98e2867acc2c577880856">find</a> (const iterator &amp;ptr) const</td></tr>
+<tr class="memdesc:aac3736ab7eb98e2867acc2c577880856"><td class="mdescLeft">&#160;</td><td class="mdescRight">Const version of find.  <br /></td></tr>
 <tr class="separator:aac3736ab7eb98e2867acc2c577880856"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Typedef Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><div class="compoundTemplParams">template&lt;typename type&gt;<br />
+struct PLEASE::myIntrusiveList&lt; type &gt;</div><p>Intrusive doubly-linked list implementation. </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">type</td><td>The type of data stored in the list </td></tr>
+  </table>
+  </dd>
+</dl>
+</div><h2 class="groupheader">Member Typedef Documentation</h2>
 <a id="a4c8ac207ec486645ae4e3ddc2ab3fff6" name="a4c8ac207ec486645ae4e3ddc2ab3fff6"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a4c8ac207ec486645ae4e3ddc2ab3fff6">&#9670;&#160;</a></span>const_iterator</h2>
 
@@ -389,6 +442,8 @@ template&lt;typename type&gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p>Destructor, cleans up all nodes. </p>
+
 </div>
 </div>
 <a id="ae43df7516e7b48bf356ee03aeab8f9e1" name="ae43df7516e7b48bf356ee03aeab8f9e1"></a>
@@ -415,6 +470,9 @@ template&lt;typename type&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Default constructor. </p>
+<p>Initializes an empty list with head and tail sentinels </p>
 
 </div>
 </div>
@@ -443,6 +501,14 @@ template&lt;typename type&gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p>Copy constructor. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">tab</td><td>List to copy from </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="a3930808dba8c399466f78bfbddeb16ef" name="a3930808dba8c399466f78bfbddeb16ef"></a>
@@ -469,6 +535,14 @@ template&lt;typename type&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Initializer list constructor. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">list</td><td>Initializer list to construct from </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -502,6 +576,15 @@ template&lt;typename type&gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p>Assigns new contents to the list using iterator range. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">begin</td><td>Iterator to start of range </td></tr>
+    <tr><td class="paramname">end</td><td>Iterator to end of range </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="a80e5d02d3a5f318da8ef88358f81c756" name="a80e5d02d3a5f318da8ef88358f81c756"></a>
@@ -533,6 +616,15 @@ template&lt;typename type&gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p>Assigns new contents to the list with a given value repeated n times. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sizeofvec</td><td>Number of elements to assign </td></tr>
+    <tr><td class="paramname">data</td><td>Value to fill the list with </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="a382c978bb43540e2bfd657e0953820e3" name="a382c978bb43540e2bfd657e0953820e3"></a>
@@ -559,6 +651,14 @@ template&lt;typename type&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Assigns new contents from an initializer list. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">list</td><td>Initializer list to assign from </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -587,6 +687,21 @@ template&lt;typename type&gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p>Safe element access with bounds checking. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">idx</td><td>Index of element to access </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Reference to the element at position idx </dd></dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">std::out_of_range</td><td>if idx is out of bounds or list is empty </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="aabb3b59f53dcdcfef30d8df59ac22b23" name="aabb3b59f53dcdcfef30d8df59ac22b23"></a>
@@ -613,6 +728,21 @@ template&lt;typename type&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Safe const element access with bounds checking. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">idx</td><td>Index of element to access </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Const reference to the element at position idx </dd></dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">std::out_of_range</td><td>if idx is out of bounds or list is empty </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -641,6 +771,15 @@ template&lt;typename type&gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p>Access last element. </p>
+<dl class="section return"><dt>Returns</dt><dd>Reference to last element </dd></dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">std::out_of_range</td><td>if list is empty </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="a24186a4d6596b468fec9303e2006b680" name="a24186a4d6596b468fec9303e2006b680"></a>
@@ -667,6 +806,15 @@ template&lt;typename type&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Const access to last element. </p>
+<dl class="section return"><dt>Returns</dt><dd>Const reference to last element </dd></dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">std::out_of_range</td><td>if list is empty </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -695,6 +843,15 @@ template&lt;typename type&gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p>Gets iterator to first element. </p>
+<dl class="section return"><dt>Returns</dt><dd>Iterator to beginning </dd></dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">std::out_of_range</td><td>if list is empty </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="a65020477061e3f1852ac8d372431de57" name="a65020477061e3f1852ac8d372431de57"></a>
@@ -721,6 +878,15 @@ template&lt;typename type&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Gets const iterator to first element. </p>
+<dl class="section return"><dt>Returns</dt><dd>Const iterator to beginning </dd></dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">std::out_of_range</td><td>if list is empty </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -749,6 +915,8 @@ template&lt;typename type&gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p>Removes all elements from the list. </p>
+
 </div>
 </div>
 <a id="a0b2785af2c664d0547acc2f6e05a7110" name="a0b2785af2c664d0547acc2f6e05a7110"></a>
@@ -775,6 +943,9 @@ template&lt;typename type&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Checks if the list is empty. </p>
+<dl class="section return"><dt>Returns</dt><dd>true if the list is empty </dd></dl>
 
 </div>
 </div>
@@ -803,6 +974,9 @@ template&lt;typename type&gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p>Const version of empty check. </p>
+<dl class="section return"><dt>Returns</dt><dd>true if the list is empty </dd></dl>
+
 </div>
 </div>
 <a id="a41eb662f6c4ac266184dc8b355f555fe" name="a41eb662f6c4ac266184dc8b355f555fe"></a>
@@ -829,6 +1003,15 @@ template&lt;typename type&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Gets iterator to end. </p>
+<dl class="section return"><dt>Returns</dt><dd>Iterator to end </dd></dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">std::out_of_range</td><td>if list is empty </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -857,6 +1040,15 @@ template&lt;typename type&gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p>Gets const iterator to end. </p>
+<dl class="section return"><dt>Returns</dt><dd>Const iterator to end </dd></dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">std::out_of_range</td><td>if list is empty </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="a2b6df5cc6341f14f43a2aff4aafd0c31" name="a2b6df5cc6341f14f43a2aff4aafd0c31"></a>
@@ -883,6 +1075,20 @@ template&lt;typename type&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Removes element at iterator position. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">it</td><td>Iterator to element to remove </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">std::out_of_range</td><td>if iterator is invalid </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -911,6 +1117,15 @@ template&lt;typename type&gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p>Finds an element in the list. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ptr</td><td>Iterator to search for </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Iterator to found element or <a class="el" href="#a41eb662f6c4ac266184dc8b355f555fe" title="Gets iterator to end.">end()</a> if not found </dd></dl>
+
 </div>
 </div>
 <a id="aac3736ab7eb98e2867acc2c577880856" name="aac3736ab7eb98e2867acc2c577880856"></a>
@@ -937,6 +1152,15 @@ template&lt;typename type&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Const version of find. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ptr</td><td>Iterator to search for </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Const iterator to found element or <a class="el" href="#a41eb662f6c4ac266184dc8b355f555fe" title="Gets iterator to end.">end()</a> if not found </dd></dl>
 
 </div>
 </div>
@@ -965,6 +1189,15 @@ template&lt;typename type&gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p>Access first element. </p>
+<dl class="section return"><dt>Returns</dt><dd>Reference to first element </dd></dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">std::out_of_range</td><td>if list is empty </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="a7d3e58c397f2f41f8c8a055630ab57e9" name="a7d3e58c397f2f41f8c8a055630ab57e9"></a>
@@ -991,6 +1224,15 @@ template&lt;typename type&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Const access to first element. </p>
+<dl class="section return"><dt>Returns</dt><dd>Const reference to first element </dd></dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">std::out_of_range</td><td>if list is empty </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -1023,6 +1265,21 @@ template&lt;typename type&gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p>Inserts an element at iterator position. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">newit</td><td>Iterator indicating the position to insert </td></tr>
+    <tr><td class="paramname">value</td><td>Value to insert </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">std::out_of_range</td><td>if iterator is invalid </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="a252d16e33fe190c93796c91bdb3118ce" name="a252d16e33fe190c93796c91bdb3118ce"></a>
@@ -1049,6 +1306,9 @@ template&lt;typename type&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Gets the maximum possible size of the list. </p>
+<dl class="section return"><dt>Returns</dt><dd>Maximum number of elements that can be held </dd></dl>
 
 </div>
 </div>
@@ -1077,6 +1337,9 @@ template&lt;typename type&gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p>Const version of max_size. </p>
+<dl class="section return"><dt>Returns</dt><dd>Maximum number of elements that can be held </dd></dl>
+
 </div>
 </div>
 <a id="a5021eb280ba52522abd7d37f95167cab" name="a5021eb280ba52522abd7d37f95167cab"></a>
@@ -1103,6 +1366,15 @@ template&lt;typename type&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Assignment operator. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">tab</td><td>List to copy from </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Reference to this list </dd></dl>
 
 </div>
 </div>
@@ -1131,6 +1403,15 @@ template&lt;typename type&gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p>Access operator. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">idx</td><td>Index of element to access </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Reference to the element at position idx </dd></dl>
+
 </div>
 </div>
 <a id="a278429116af01ea71f97ace261a8005e" name="a278429116af01ea71f97ace261a8005e"></a>
@@ -1157,6 +1438,15 @@ template&lt;typename type&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Const access operator. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">idx</td><td>Index of element to access </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Const reference to the element at position idx </dd></dl>
 
 </div>
 </div>
@@ -1185,6 +1475,14 @@ template&lt;typename type&gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p>Removes the last element. </p>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">std::out_of_range</td><td>if the list is empty </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="a3647b6729a9cd07f63f84efd6cf998bc" name="a3647b6729a9cd07f63f84efd6cf998bc"></a>
@@ -1211,6 +1509,14 @@ template&lt;typename type&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Removes the first element. </p>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">std::out_of_range</td><td>if the list is empty </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -1239,6 +1545,14 @@ template&lt;typename type&gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p>Adds an element to the end of the list. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">val</td><td>Value to add </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="a7bf6fcdcff86186c578e1546beadf306" name="a7bf6fcdcff86186c578e1546beadf306"></a>
@@ -1265,6 +1579,14 @@ template&lt;typename type&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Adds an element to the front of the list. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">val</td><td>Value to add </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -1293,6 +1615,15 @@ template&lt;typename type&gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p>Gets reverse iterator to last element. </p>
+<dl class="section return"><dt>Returns</dt><dd>Reverse iterator to the reverse beginning </dd></dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">std::out_of_range</td><td>if list is empty </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="aef250dfb7b5cef0a9511ad14fe1b7eed" name="aef250dfb7b5cef0a9511ad14fe1b7eed"></a>
@@ -1319,6 +1650,15 @@ template&lt;typename type&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Gets const reverse iterator to last element. </p>
+<dl class="section return"><dt>Returns</dt><dd>Const reverse iterator to the reverse beginning </dd></dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">std::out_of_range</td><td>if list is empty </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -1347,6 +1687,15 @@ template&lt;typename type&gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p>Gets reverse iterator to theoretical element before first. </p>
+<dl class="section return"><dt>Returns</dt><dd>Reverse iterator to the reverse end </dd></dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">std::out_of_range</td><td>if list is empty </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="afa44954eab14cbe373585427630533de" name="afa44954eab14cbe373585427630533de"></a>
@@ -1373,6 +1722,15 @@ template&lt;typename type&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Gets const reverse iterator to theoretical element before first. </p>
+<dl class="section return"><dt>Returns</dt><dd>Const reverse iterator to the reverse end </dd></dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">std::out_of_range</td><td>if list is empty </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -1401,6 +1759,15 @@ template&lt;typename type&gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p>Resizes the list. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">idx</td><td>New size</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>If idx is smaller than current size, removes elements from the end If idx is larger than current size, adds default-constructed elements </p>
+
 </div>
 </div>
 <a id="a9dee54f1af53e1c31d64f3cbb37f2088" name="a9dee54f1af53e1c31d64f3cbb37f2088"></a>
@@ -1427,6 +1794,9 @@ template&lt;typename type&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Gets the current size of the list. </p>
+<dl class="section return"><dt>Returns</dt><dd>Number of elements in the list </dd></dl>
 
 </div>
 </div>
@@ -1455,6 +1825,9 @@ template&lt;typename type&gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p>Const version of size getter. </p>
+<dl class="section return"><dt>Returns</dt><dd>Number of elements in the list </dd></dl>
+
 </div>
 </div>
 <a id="a177a3548af27285295b0375106212aad" name="a177a3548af27285295b0375106212aad"></a>
@@ -1481,6 +1854,14 @@ template&lt;typename type&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Swaps the contents of two lists. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">Newlist</td><td>List to swap with </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
